@@ -1,0 +1,1496 @@
+﻿[Tools]
+
+	HelperHints = 0	
+
+[Locale]
+	CodePage = 1251
+	CharSet  = 204  
+	ForceCharset = 1
+	Translit = 0
+
+[Strings]
+	NoDBItem		= "  Нет  "
+	ExpressionItem		= " Выражение "
+	SetupDBItem		= "Настроить..."
+
+	GarrisonNameFormat	= "Гарнизон"
+	GarrisonCaptionFormat	= "Гарнизон [%d:%d]"
+
+	BuildingsNameFormat	= "Постройки"	
+	BuildingsCaptionFormat	= "Постройки [%d:%d]"	
+
+	QueueNameFormat		= "Очередь построек"
+	QueueCaptionFormat	= "Очередь построек [%d:%d]"
+
+	PlanetGroupCaptionFormat   = "[%d:%d] %s"
+	PlanetGroupNameFormat      = "[%d:%d] %s"
+
+	PlanetsGroupName        = "Планеты"
+	GarrisonsGroupName      = "Гарнизоны"
+	AliensGroupName         = "Чужие флоты"
+
+	UnknownFleet		= "Неизвестный флот"
+
+	ErrorDlgCaption 		= "Ошибка"
+	BadCoords			= "Координаты не распознаны"
+	DataNotRecognized		= "Данные не распознаны"
+
+	TableSaveError		= " Ошибка сохранения данных для таблицы '%s' "
+	TableLoadError		= " Ошибка загрузки данных для таблицы '%s' "
+
+	DCMapFailedTrySaveBD	= " Неустранимая ошибка. Попытаться сохранить БД?";
+
+	WebUpdateCaption	= "Доступна новая версия DCMAP: "
+	WebUpdateConfirm	= "Загрузить и установить новую версию DCmap?"
+
+	WebUpdateLatest		= "Вы используете последнюю версию DCMap."
+	WebUpdateNoServerAccess	= "Не удалось получить доступ к серверу"
+
+	NewRegExpParam		= "Новый параметр"
+
+	MapRegExpImportCaption    = "Импорт на карту"
+	MapClipbrdExportCaption   = "Экспорт с карты"
+	TableRegExpImportCaption  = "Импорт в таблицу "
+	TableClipbrdExportCaption   = "Экспорт из таблицы "
+
+
+	PlanetHintCoordFormat   = "<b>%d:%d</b>"
+	PlanetHintNameFormat    = "%d:%d - <b><font color=aa0000><b> %s </font></b>"
+	PlanetHintOwnerFormat	= "  Владелец <font color=660000><b>%s</b></font>"
+	PlanetHintGeoFormat	= "<b><font color=green>o:</font> %d <font color=blue>e:</font> %d <font color=red>m:</font> %d <font color=0077cc>t:</font> %d <font color=00ff00cc>s:</font> %d</b>"
+	PlanetHintDistFormat    = "[%d:%d] -> [%d:%d]  <b>%d</b>"
+
+	PlanetHintGraphicRegionsFormat = "<font size=7>%1%</font>/%2%"
+
+	#PlanetHintGraphicRegionsFormat = "<b><font size=10>%2%</font></b>"
+
+
+	DIP_UNDEFINED		= "Не определены"
+	DIP_NEUTRALS		= "Нейтральный"
+	DIP_ALLY			= "Союзник"
+	DIP_ENEMIES			= "Враг"
+	DIP_POTENTIAL_ALLY	= "Потенциальный союзник"
+	DIP_POTENTIAL_ENEMIES	= "Потенциальный враг"
+	DIP_LORD			= "Лорд"
+	DIP_VASSAL			= "Вассал"
+	DIP_MULT			= "Мульт"
+
+
+	DefaultTabName		= "Карта"
+
+	DefaultFormTitle		= "DCMap"
+
+	
+	# Hints of fleet frame
+	UnitHint		= " <b>%s</b> <br> Поддержка   %d : %d"
+
+	ForeignUnitHint		= " <b>%s</b> - %d тонн(ы)"
+
+	ForeignFleetHint	= "<b><font color=aa0000><b> %s </font></b><br> Владелец <font color=660000><b>%s</b></font><br> Кораблей: <b>%d</b> Вес: <b>%d</b> <br> Находится на <b>%s</b>"
+	ForeignFleetInTransitHint       = "<b><font color=aa0000><b> %s </font></b><br> Владелец <font color=660000><b>%s</b></font><br> Кораблей: <b>%d</b> Вес: <b>%d</b> <br> Летит из <b>[%s]</b> в <b>[%s]</b> <br> Ходов до прилёта <b>%d</b> "
+	
+	MyFleetHint	=  "<b><font color=aa0000><b> %s </font></b><br> Владелец <font color=660000><b>%s</b></font> <br> Кораблей: <b>%d</b> Ячеек: <b>%d</b> Карго: <b>%d</b> <br> Находится на <b>%s</b>"
+	MyFleetInTransitHint       = "<b><font color=aa0000><b> %s </font></b><br> Владелец <font color=660000><b>%s</b></font> <br> Кораблей: <b>%d</b> Ячеек: <b>%d</b> Карго: <b>%d</b> <br> Летит из <b>[%s]</b> в <b>[%s]</b> <br> Ходов до прилёта <b>%d</b> "
+
+	MyFleetHint =~ END
+<b><font color=aa0000><b> $FleetName </font></b><br>
+ Владелец <font color=660000><b>$Owner</b></font> 
+<br> Кораблей: <b>$ShipCount</b> Ячеек: <b>$TransportCapacity</b> Карго: <b>$CargoCount</b> 
+<br> Находится на <b>$Planet</b>"
+END
+
+	CreateNewFleet		= "Создать новый флот"
+	FleetAlienPlanet        = "Планета"
+
+
+	WrongOldPassword	= Неверный текущий пароль
+	PasswordsMismatch	= Пароли не совпадают
+	PasswordChangeFailed	= Не удалось изменить пароль
+	PasswordChanged		= Пароль успешно изменён 
+
+	EnterPasswordMsg		= Введите пароль
+	WrongPasswordMsg	= Неверный пароль
+
+
+	PopulationGrowPers	= "Прирост %s%%"
+	PopulationExtinctionPers= "Убыль %s%%"
+
+
+[Strings]
+
+FleetBehaviorItems ~= END
+Защита
+Атака
+Вторжение
+Помощь
+END
+
+FleetBehaviorItemsStealth ~= END
+Не лезть
+Защита
+Атака
+Вторжение
+Помощь
+END
+
+[Strings]
+
+MyFleetHint ~= END
+<b><font color=aa0000><b> $FleetName </font></b>
+<br> Владелец <font color=660000><b>$Owner</b></font> 
+<br> Кораблей: <b>$ShipCount</b> Ячеек: <b>$TransportCapacity</b> Карго: <b>$CargoCount</b> 
+<br> Скорость: <b>${floor($FlySpeed,2)}</b> Дальность: <b>${floor($FlyRange,2)}</b> 
+<br> Находится на <b>$Planet</b>
+END
+
+MyFleetInTransitHint ~= END
+<b><font color=aa0000><b> $FleetName </font></b>
+<br> Владелец <font color=660000><b>$Owner</b></font> 
+<br> Кораблей: <b>$ShipCount</b> Ячеек: <b>$TransportCapacity</b> Карго: <b>$CargoCount</b> 
+<br> Скорость: <b>${floor($FlySpeed,2)}</b> Дальность: <b>${floor($FlyRange,2)}</b> 
+<br> Летит из <b>[$SourcePlanet]</b> в <b>[$Planet]</b> 
+<br> Ходов до прилёта <b>$TTA</b> 
+END
+
+MyUnitHint ~= END
+<b>$project.name</b>${$project.chassis.name != $project.name}?( ($project.chassis.name))<br>
+$project.description?(  <font size=8>$project.description </font><br>)
+ Поддержка <b>${round($project.support_main)}</b> : <b>${round($project.support_second)}</b> <br>
+$project.fly_speed?( Скорость: <b>${floor($project.fly_speed,2)}</b> Дальность: <b>${floor($project.fly_range,2)}</b> <br>)
+$project.laser_number?( Повреждения лазерами: <b>${round($project.laser_damage)}  x$project.laser_number</b><br>)
+$project.bomb_number?( Повреждения ракетами: <b>${round($project.bomb_damage)}  x$project.bomb_number</b><br>)
+END
+
+[Glyphs]
+		
+	
+[Modules]
+	PFrameBar::PlanetInfo				= Информация о планете
+	PFrameBar::GeoValue				= Пригодность планеты
+	PFrameBar::MapLayers				= Управление слоями
+	PFrameBar::PlanetComment			= Комментарий к планете
+	PFrameBar::SimpleFilter 			= Фильтр
+	PFrameBar::OldSimpleFilter			= Старый фильтр	
+	PFrameBar::PlanetEconomyInfo			= Экономика планеты
+	PFrameBar::PlanetEconomyInfo			= Экономика планеты
+	PFrameBar::FleetBar				= Управление флотами
+
+	PFormPanelItem::FleetInfo			= Управление флотами
+	
+
+	PView::ScriptEditor				= Редактор скриптов
+	PView::MapNavView				= Карта планет
+	PView::WebView 					= Веб броузер
+
+
+	PToolbarItem::GraphicToolbarItem		= Управление графикой
+	PToolbarItem::ColoringSelectToolItem	= Выбор схемы расцветки
+	PToolbarItem::PlanetDistancesToolItem 	= Расстояния между планетами
+	PToolbarItem::PlayerToolbarItem		= Экономика игрока
+
+
+	PPlanetColorProvider::Color			= Заданный цвет:
+	PPlanetColorProvider::DipColor		= Дип. статус владельца 
+	PPlanetColorProvider::GeoValueColor		= Пригодность планеты 
+	PPlanetColorProvider::PlanetColor1		= Цвет планеты 1
+	PPlanetColorProvider::PlanetColor2		= Цвет планеты 2
+	PPlanetColorProvider::PlayerColor1		= Цвет владельца 1
+	PPlanetColorProvider::PlayerColor2		= Цвет владельца 2
+	PPlanetColorProvider::OrgColor1		= Цвет союза 1
+	PPlanetColorProvider::OrgColor2		= Цвет союза 2
+	PPlanetColorProvider::CorruptionColor	= Коррупция
+
+	PTableFilter_planets::CurrentPlanetDataProcessorFilter = Текущий фильтр
+	PTableFilter_geo::CurrentGeoDataProcessorFilter = Текущий фильтр
+
+[Tables]
+	layers_StorageCaption				= "Слои"
+	layers_RecordCaption				= "Слой"
+	layers_NewIndexText				= "Новый слой"
+
+	graphics_StorageCaption				= "Графика"
+	graphics_RecordCaption				= "Графический элемент"
+	graphics_NewIndexText				= "Новый графический элемент"
+
+	coloring_StorageCaption				= "Расцветки карты"
+	coloring_RecordCaption				= "Расцветка карты"
+	coloring_NewIndexText				= "Новая расцветка"
+
+	dip_StorageCaption				= "Дип. отношения"
+	dip_RecordCaption					= "Дип. отношение"
+	dip_NewIndexText					= "Новое дип. отношение"
+
+	icons_StorageCaption				= "Значки"
+	icons_RecordCaption				= "Значок"
+	icons_NewIndexText				= "Новый значок"
+
+	organizations_StorageCaption			= "Организации"
+	organizations_RecordCaption			= "Организация"
+	organizations_NewIndexText			= "Новая организация"
+
+	planets_StorageCaption				= "Планеты"
+	planets_RecordCaption				= "Планета"
+	planets_NewIndexText				= "-1:-1"
+
+	players_StorageCaption				= "Игроки"
+	players_RecordCaption				= "Игрок"
+	players_NewIndexText				= "Новый игрок"
+
+	races_StorageCaption				= "Расы"
+	races_RecordCaption				= "Раса"
+	races_NewIndexText				= "Новая раса"
+
+	fleets_StorageCaption				= "Флоты"
+	fleets_RecordCaption				= "Флот"
+	fleets_NewIndexText				= "Новый флот"
+
+[PreferencencesForm]
+
+	base 			= Основные
+	colors			= Цвета
+
+[GameXMLImport]
+
+	general-info	= Общая информация об аккаунте
+	user-planets	= Планеты игрока
+	diplomacy	= Дипломатия
+	building-types	= Типы строений и юнитов
+	harrisons	= Содержимое планет и гарнизонов
+	fleets		= Флоты игрока
+	allien-fleets	= Чужие флоты
+	known-planets	= Известные планеты
+	harrisons	= Содержимое гарнизонов
+	
+
+	ImportMessageFormat	= "Импортирую \"%s\""
+	ImportErrorFormat	= "Ошибка импорта \"%s\""
+
+	ImportCompleted		= "\r\nИмпорт успешно завершён."
+	ImportErrorCompleted 	= "\r\nИмпорт завершён с ошибками."
+
+
+
+[UI::AboutForm]
+	Caption			= О программе
+	VerLabel			= Версия:
+	ApiVerLabel			= Версия API:
+	CopyR1Label			= "При разработке использовалась \nбесплатная версия AlphaControls "
+	CheckUpdateBtn		= Проверить обновления
+	CheckUpdateBtn.Glyph	= application-update
+
+
+[UI::DataEditForm]
+	OkButton 		= Ок
+	CloseButton 		= Отмена
+	ApplyButton 		= Применить
+
+	DataPasteButton.Hint    = Вставить данные из буфера обмена
+	DataPasteButton.Glyph   = edit-paste
+
+	DataCopyButton.Hint     = Копировать данные в буфер обмена
+	DataCopyButton.Glyph   = edit-copy
+
+	ContextButton.Glyph	= application-advanced
+
+
+[UI::ListEditForm]
+	AddButton 		= Добавить
+	DeleteButton 		= Удалить
+	MaskEdit 		= Поиск
+	ApplyButton 		= Применить
+	CanselButton 		= Отменить
+	OkButton 		= Ok
+	CloseButton 		= Отмена
+	SortCheck 		= Сортировать
+
+	DataPasteButton.Hint    = Вставить данные из буфера обмена
+	DataPasteButton.Glyph   = edit-paste
+
+	DataCopyButton.Hint     = Копировать данные в буфер обмена
+	DataCopyButton.Glyph   = edit-copy
+
+	ContextButton.Glyph	= application-advanced
+
+	UpBtn.Glyph		= up
+	DownBtn.Glyph		= down
+
+
+
+[UI::ConsoleForm]
+	Caption 		= Консоль
+	ExecuteButton		= Выполнить
+
+
+[UI::PreferencencesForm]
+	Glyph			= application-configure
+	Caption 		= Установки
+	ApplyButton 		= Применить
+	OkButton 		= Ok
+	CloseButton 		= Отмена
+
+[UI::DataImportForm]
+	Caption 		= Импорт данных
+	Glyph			= data-import
+
+	CloseButton 		= Выход
+	ImportButton 		= Импортировать
+
+	FileRadio 			= Из файла:
+	ClipboardButton 		= Из буфера обмена
+	ModuleRadio 		= Из модуля
+	ReadButton 			= Перечитать
+	ModuleList 			= Модуль
+	TableCombo 			= Таблица
+	AppentRadio 		= Дополнять данные
+	ReplaceRadio 		= Заменять данные
+	ProcessButton 		= Считать
+	ParamEdit 			= Параметры
+	RecordsTab 			= Записи
+	ErrorsTab 			= Ошибки
+	MessagesTab 		= Сообщения
+
+	SaveParam.Hint		= Сохранить параметры
+	DeleteParam.Hint		= Удалить параметры
+
+	CodepageComboBox.Hint	= Кодировка файла
+
+
+[UI::DataExportForm]
+	Glyph		= data-export
+
+	Caption 		= Экспорт данных
+	CloseButton 		= Выход
+	SaveButton 			= Сохранить...
+	ParamEdit 			= Параметры
+	ModuleList 			= Модуль
+	TableCombo 			= Таблица
+	ProcessButton 		= Обработать
+	FilterCombo			= Фильтр
+	ExpressionEdit		= Выражение
+
+	SaveParam.Hint		= Сохранить параметры
+	DeleteParam.Hint		= Удалить параметры
+	CopyData.Hint		= Скопировать результат в буфер
+
+
+
+[UI::ViewSetupForm]
+	Caption 			= Настройка вкладки
+	OkButton 			= Ok
+	CloseButton 		= Отмена
+
+	SideBarTab 			= Боковые панели
+	ToolbarTab 			= Панели инструментов
+
+	RightSidebar		= Правая панель
+	LeftSidebar			= Левая панель
+	SidebarModules		= Доступные модули
+
+	Toolbar			= Панель инструментов
+	ToolbarModules		= Доступные модули
+
+	ModulesTab		= Модули
+	ModulesCheckList	= Использовать дополнительные модули:
+
+
+
+[UI::WebProcessForm]
+	caption			= Загрузка
+`	CanselBtn			= Отмена
+
+
+[UI::ColorSchemeToolbarFrame]
+
+	ColorSchemeCombo.Hint 	= Цветовая схема
+
+[UI::GraphicToolbarFrame]
+
+	LayerCombo.Hint 	= Список графических слоёв
+	AddPolygonBtn.Hint 	= Добавить новую область	
+	AddPolylineBtn.Hint 	= Добавить новый трассер
+	EditButton.Hint 	= Редактировать слой
+	AddZonesBtn.Hint	= Добавить круглые зоны
+
+
+[UI::PlanetInfoFrame]
+	Caption			= Информация о планете:
+
+	NameL 			= Название:
+	OwnerL 			= Владелец:
+	CoordEdit 			= Координаты
+	CoordEdit.Hint		= Координаты планеты <br> Для перехода по координатам нажмите <b>Enter</b>
+
+	CoordsMenuItem		= Координаты
+	GeoMenuItem			= Геоданные
+	AllDataMenuItem		= Все данные
+
+	WebGoPaid		= $$$$
+	WebGoPaid.Hint  	= Открыть в игре (на платной подписке)
+
+	WebGoStandart		= WWW
+	WebGoStandart.Hint 	= Открыть в игре
+
+
+	CorruptionBox.Hint	= Уровень коррупции
+	CorruptionOpBox.Hint	= Уровень коррупции
+	OBox.Hint			= Органика
+	EBox.Hint			= Энергия
+	MBox.Hint			= Минералы
+	TBox.Hint			= Температура
+	SBox.Hint			= Размер
+
+	CopyButton.Glyph	= edit-copy
+
+	ExpandButton.Hint	= Полный вид
+	ExpandButton.Glyph	= panel-expand
+
+	CollapseButton.Hint	= Компактный вид
+	CollapseButton.Glyph	= panel-collapse
+
+
+
+[UI::GeoValueFrame]
+	Caption			= Пригодность планеты
+
+	RaceRadio     		= Для расы
+	PlayerRadio   		= Для игрока
+	MBL           		= Макс. добыча ПР
+	CBL           		= Макс. отдача К(ПР):
+	MSL           		= Макс. добыча ВР
+	CSL           		= Макс. отдача К(ВР):
+
+	CollapseButton.Hint	= Скрыть детали
+	CollapseButton.Glyph	= panel-collapse
+
+	ExpandButton.Hint	= Показать детали
+	ExpandButton.Glyph	= panel-expand
+
+
+[UI::PlayerEditPropFrame]
+
+	Caption 			= Параметры
+
+	NameEdit 			= Имя
+	RaceComboBox 		= Раса
+	DipRadio 			= Дипломатические отношения
+	OtherDipCheck 		= Другие
+	OrgComboBox 		= Входит в организацию
+	sLabel1			= Является:	
+	RelMultCheckBox 		= мультом
+	VassalCheckBox 		= вассалом
+	RelationComboBox		= игрока
+	PlayerColor1		= Цвет 1  
+	PlayerColor2		= Цвет 2  
+	IconCombo			= Значок
+	SURL				= Найти в игре
+
+
+[UI::PlanetParamFrame]
+	Caption 			= Параметры
+	NameEdit 			= Имя
+	OwnerComboBox 		= Хозяин планеты:
+	EditO 			= Органика
+	EditE 			= Энергия
+	EditM 			= Минералы
+	EditT 			= Температура
+	EditS 			= Размер
+	EditTurn 			= Ход
+	EditTurn.Hint		= Ход получения данных о планете
+	PlanetColor1		= Цвет 1  
+	PlanetColor2		= Цвет 2  
+	IconCombo1 			= Основной значок
+	IconCombo2 			= Дополнительный значок
+	CommentMemo 		= Примечания
+
+	KeepNameBtn.Glyph	= pushpin
+	KeepNameBtn.Hint	= Не загружать имя планеты с сервера
+
+	SynchronizeBtn.Glyph	= synchronize
+	SynchronizeBtn.Hint	= Переименовывать планету на сервере
+
+
+[UI::PlanetBuildingsFrame]
+	Caption 			= Экономика
+	MiningRadio			= Добывающая
+	IndustrialRadio		= Индустриальная
+	BounceRadio			= Подскок
+	HWCheck			= Домашний мир
+	UnsafeCheck			= Не безопасна
+
+	MinesEdit			= Шахты
+	BiofarmsEdit		= Биофермы
+	PowerPlantsEdit		= Генераторы
+	FactoriesEdit		= Заводы
+	CompressorsEdit		= Уплотнители
+	GovernorsEdit		= Наместники
+
+	BarracksCheck		= Казармы
+	ShipyardCheck		= Верфь
+	ComponentsCheck		= Фабрика комплектующих
+	CustomsCheck		= Таможня
+	ResearchCheck		= Центр исследований
+	DesignCheck			= Конструкторское Бюро
+	PalaceCheck			= Дворец
+
+	CorruptionEdit		= Коррупция
+
+	ParamsGroupBox		= Параметры планеты
+
+	MaxPopLabel		= Макс. население:
+	PopCurLabel		= Текущее население:
+	PopFreeLabel		= Свободное население:
+	ProductionLabel		= Выработка ЧЧ:
+	CorruptLabel		= Уровень коррупции:
+
+
+[UI::PlayerAdvPropFrame]
+	Caption 			= Загрузка данных
+
+	CorruptionCalcCheck	= Рассчитывать коррупцию
+	UserIDEdit			= ID игрока
+	FleetIDEdit			= ID флота
+	FleetIDEdit.Hint		= "Идентификатор флота, на котором будет исполнятся скрипт выгрузки данных"
+
+	WebAccessCheck		= Загружать данные с сервера (требуется подписка)
+	NameEdit			= Имя
+	PassEdit			= Пароль
+	IncomeBox		= Расчётный собственный приход ресурсов
+
+	ImportTrusted		= Загружать достоверные данные о планетах
+
+	ImportUntrusted		= Правила загрузки недостоверных данных:
+
+	AddOccupied		= Добавлять занятые планеты
+	AddEmpty		= Добавлять свободные планеты
+	OverwriteEmpty		= Записывать владельца для свободных планет
+	OverwriteOccupied		= Заменять владельца занятых планет
+	ClearOccupied		= Освобождать занятые планеты
+	ImportRegionEdit	= Только из региона
+
+
+	ImportDip			= Загружать дипломатические отношения
+	ImportContents		= Загружать содержимое планет
+	ImportFleets		= Загружать информацию о флотах
+	ImportAlienFleets		= Загружать информацию о чужих флотах
+
+
+	Manage		= Управлять аккаунтом из DCMap
+
+
+[UI::FixedFilterFrame]
+	Caption 			= Фильтр
+	NoFilterCheckBox 		= Нет
+	NumFiltersEdit.Hint	= Количество фильтров 
+
+	ShadeButton.Glyph	= shade-planets
+	ShadeButton.Hint	= "Затенять отфильтрованные планеты, <br> вместо того, чтобы скрывать."
+
+	LoadButton.Glyph 		= document-open
+	LoadButton.Hint 		= Загрузить предустановку
+
+	SaveButton.Glyph 		= document-save-as
+	SaveButton.Hint 		= Сохранить предустановку
+
+	OpModeButton.Hint	= Приоритет операций
+
+
+	GeoMenu			= Геология
+	OwnerMenu		= Владелец
+	PlanetMenu		= Планета
+	ValueMenu		= Доходность
+	PositionMenu		= Положение
+
+	Organics_num		= Органика
+	Energy_num		= Энергия
+	Minerals_num		= Минералы
+	Temperature_num		= Температура
+	Size_num		= Размер
+
+	X_num			= y
+	Y_num			= x
+	Sector_str		= Регион
+
+	planets_owner		= Имя
+	planets_owner.Hint	= Владелец
+
+	players_dip		= Дип. отношения
+	players_organization	= Организация
+
+	planets_caption		= Название
+	planets_notes		= Комментарии
+	planets_notes		= Комментарии
+
+	planets_icon1		= Осн. значок
+	planets_icon2		= Доп. значок
+
+	Growth_num		= Прирост	
+	Credits_num		= Доход	
+	MiningBase_num 		= Добыча перв.
+	CreditsBase_num		= Доход с перв.
+	MiningSecond_num	= Добыча втор.
+	CreditsSecond_num	= Доход с втор.
+
+	Expression_custom	= Выражение
+
+
+[UI::RaceEditPropFrame]
+
+	Caption			= Основные
+
+	NameEdit		= Название
+	NatureEdit		= Природа расы
+	BasisEdit		= Первичный ресурс
+	SecondEdit		= Вторичный ресурс
+	MinTEdit		= Мин. температура
+	MaxTEdit		= Макс. температура
+	GrowthEdit		= Бонус прироста
+	MningEdit		= Добыча ресурсов
+	MinGrowthEdit		= Минимальный прирост
+
+
+[UI::RaceAdvPropFrame]
+
+	Caption			= Производственные
+
+	ScienceEdit			= Наука
+	SpeedEdit			= Скорость
+	PricesEdit			= Цены
+	CivProdEdit			= Мирное производство
+	MilProdEdit			= Военное производство
+	HitpointsEdit		= Прочность
+	DamageEdit			= Повреждения
+	DetectionEdit		= Обнаружение
+	StealthEdit			= Невидимость
+	DefenceEdit			= Защита
+
+
+
+[UI::OrgPropFrame]
+	Caption			= Основные
+
+	NameEdit			= Название
+	OrgColor1			= Цвет 1 
+	OrgColor2			= Цвет 2
+	DipRadio			= Дипломатические отношения
+
+[UI::DipEditPropFrame]
+	Caption			= Основные
+	NameEdit			= Название
+	DipColor			= Цвет 
+	DipRadio			= Дипломатические отношения
+
+[UI::ColoringPropFrame]
+	Caption			= Основные
+	NameEdit			= Название
+	PlanetComboBox		= Цвет планеты
+	PlanetBorderComboBox	= Цвет окантовки
+	BackgroundComboBox	= Цвет фона
+	BorderComboBox		= Цвет рамки
+	MarkerComboBox		= Цвет маркера
+
+[UI::LayerEditFrame]
+	Caption			= Основные
+	NameEdit		= Название
+	ModuleCombo		= Модуль 
+	HiddenCheck		= Не показывать в списке 
+
+
+[UI::GraphHelperForm]
+	Caption			= Рисование
+	Transparency 		= 0.1
+
+	UndoBtn.Hint		= Отменить действие 
+	UndoBtn.Glyph		= edit-undo 
+
+	TextBtn.Hint		= Поместить подпись 
+	TextBtn.Glyph		= text
+
+	LinesGroupBox		= Линии
+	FillGroupBox		= Заливка
+	TextGroupBox		= Текст
+
+	LineColor.Hint 		= Цвет линий
+	LineStyle.Hint 		= Стиль линий
+	LineArrows.Hint 	= Тип стрелок
+	LineTrns.Hint 		= Прозрачность линий
+	LineWidth.Hint 		= Толщина линий
+	FillColor.Hint 		= Цвет заливки
+	FillTrns.Hint 		= Прозрачность заливки
+	TextColor.Hint 		= Цвет текста
+	TextTrns.Hint 		= Прозрачность текста
+	TextSize.Hint 		= Размер текста
+	FillRadius.Hint 	= Радиус круга
+
+	OkBtn			= Ок
+	CancelBtn			= Отмена
+
+[UI::GraphicsEditFrame]
+	Caption			= Основные
+	NameEdit			= Название
+	VisibleCheck		= Показывать
+	PolyRadio			= Область
+	LineRadio			= Трассер
+
+	LineCheck			= Линии
+	ThinLineRadio		= Тонкие
+	WideLineRadio		= Толстые
+	XXLLineRadio		= XXL
+	LineTrns.Hint		= Прозрачность
+	LineColor			= Цвет
+
+	FillCheck			= заливка 
+	FillColor			= Цвет
+	FillTrns.Hint	      = Прозрачность
+
+	CoordsList			= Координаты
+
+	TextEdit			= Текст подписи
+	NotesEdit			= Примечания
+	TextCoordsEdit		= Положение
+	TextCheck			= Подпись
+	TextSizeEdit		= Размер
+
+	InsertBefore.Hint		= Добавить координаты перед выделенными.
+	InsertAfter.Hint		= Добавить координаты после выделенных
+	RemoveCoordBtn.Hint	= Удалить выделенные координаты
+	AddCoordBtn.Hint		= Добавить координаты в конец списка
+	UpBtn.Hint			= Переместить координату вверх по списку
+	DownBtn.Hint		= Переместить координату вниз по списку
+	CopyBtn.Hint		= Копировать координаты в буфер обмена
+	PasteBtn.Hint		= Вставить координаты из буфера обмена
+
+	CopyLayerBtn		= Копировать в слой...
+	MoveLayerBtn		= Переместить в слой...
+
+	RadiusEdit			= Радиус
+	ZonesRadio			= Окружности
+
+[UI::IconsPropFrame]
+	Caption			= Основные
+	NameEdit			= Название
+	IconLabel			= Значок
+	BigIconLabel		= Крупный значок
+	LoadImageButton		= Загрузить...
+	ClearImageButton		= Очистить
+	LoadBigImageButton	= Загрузить...
+	ClearBigImageButton	= Очистить
+	TrnsCheck			= Использовать прозрачность
+	
+	SaveImageButton		= Сохранить...
+	SaveBigImageButton      = Сохранить...
+
+
+[UI::ApperancePrefsFrame]
+   	Caption 			= Оформление
+	SkinEnableCheck		= Использовать "Шкуры"
+	AlwaysShowTabsCheck	= Всегда показывать вкладки
+	SatLabel			= Насыщенность
+	HueLabel			= Цветовой сдвиг
+	XPStylesCheck		= Использовать стили Windows XP (нужен перезапуск DCmap)
+	AnimationCheck		= Разрешить анимации
+	DownloadSkinsBtn	= Загрузить дополнительные скины 
+	DownloadSkinsBtn.Glyph	= application-update
+	PreviewCheck		= Пред просмотр изменений
+
+
+[UI::DipColorPrefFrame]
+   	Caption 			= Дипломатические
+	sColor_UNDEFINED		= Дип. отношения не определены
+	sColor_EMPTY		= Владелец планеты неизвестен
+	OthersButton		= Другие...
+
+[UI::NetSettingsFrame]
+   	Caption 			= Сеть
+	UseProxyCheck		= Использовать прокси
+	ProxyEdit			= Адрес
+	PortEdit			= Порт
+	BasicAuthCheck		= Простая авторизация
+	UsernameEdit		= Имя
+	PasswordEdit		= пароль
+	GameURLEdit			= URL для доступа к серверу
+
+
+[UI::DBFrefsFrame]
+    Caption 			= База данных
+	UseBackups			= Сохранять резервные копии данных
+	NumBackups 		        = Количество копий
+	UseHardlinks			= Использовать жёсткие ссылки (если возможно)
+	UseHardlinks.Hint		= Использовать жёсткие ссылки NTFS для создания резервных копий.<br> Это экономит место на диске. 
+	CompressDatabase	= Сжимать базу данных
+
+	BackupsGroupBox         = Параметры резервного копирования
+
+[UI::SystemPrefsFrame]
+    Caption 			= Системные
+
+    WatchClipbrdForCmd      = Выполнять команды из буфера обмена
+    AutoCheckUpdates        = Автоматически проверять обновления
+
+	ShowTrayIcon	= Отображать значок в области уведомений
+	MinimizeToTray	= Сворачивать в значок
+
+
+[UI::MapPrefsFrame]
+    	Caption 			= Параметры карты
+	SelectEmptySpace		= Выбирать пустые ячейки
+	HighQuality			= Сглаживать планеты
+	SwapButtons			= Поменять местами кнопки мыши
+	ClassicHLine		= Тонкая горизонтальная линейка
+	RightClickSelect		= Выбирать планету правым кликом
+	EnableToolTip		= Показывать всплывающие подсказки
+	ToolTipDelay		= Задержка (миллисекунды)
+
+[UI::MapColorPrefFrame]
+     	Caption 			= Карта
+   	Grid1				= Цвет сетки
+    	Grid4				= Цвет крупной сетки 1
+    	Grid3				= Цвет крупной сетки 2
+    	Grid2				= Цвет крупной сетки 3
+    	Border			= Цвет окантовки карты
+    	InactiveBorder		= Неактивная окантовка
+    	Text				= Цвет текста
+    	PointedText			= Цвет подсвеченного текста
+    	Selection			= Цвет выделенной ячейки
+    	SelectionPlanet		= Цвет выделенной планеты
+    	MapBackground		= Фон карты
+    	LineBackground		= Цвет линеек
+
+
+	GeoGoodBorder 		= Окантовка пригодной планеты 
+	GeoGoodFill			= Цвет пригодной планеты
+	GeoBadBorder		= Окантовка непригодной планеты
+	GeoBadFill 			= Цвет непригодной планеты
+
+
+[UI::FixedFilterDBFrame]
+     	ResourceSelBtn		= Выберите параметр
+   	UseCheck		= Исп.
+	OperatorComboBox.Hint	= Операция 
+
+
+[UI::FleetSideFrame]
+     	Caption		      = Управление флотами
+
+	FlyToMenu		= Лететь к планете...
+	DisbandMenu		= Распустить
+	CancelJumpMenu		= Отменить прыжок
+	MoveToFleetMenu		= Перенести в...
+	MoveToNewFleetMenu	= Новый флот...
+	RenameMenu		= Переименовать
+	CreateFleetFromSelMenu  = Флот из выбранных...
+	SetIconMenu		= Установить иконку
+	SetEmptyIconMenu	= Нет
+	PropertiesMenu		= Свойства
+
+	BuildingsMenu ="Строить здание"
+	UnitsMenu     ="Строить юнит"
+
+	HideFleetMenu           = Спрятать 
+	CancelHideFleetMenu     = Отменить включение невидимости
+	UnhideFleetMenu         = Показаться
+	CancelUnhideFleetMenu   = Отменить отключение невидимости
+ 
+	UnpackMenu              = Распаковать стази
+	CancelCargoLoadMenu  = Отменить погрузку
+
+[UI::PlanetCommentFrame]
+     	Caption		      = "Комментарий к планете"
+
+
+[UI::RegExpImpPrefsFrame]
+
+     	Caption 			= Параметры импорта
+     	BlockComboBox		= Вид импорта
+   	AddButton			= Добавить
+	DeleteButton		= Удалить
+	NameEdit			= Название
+	RegExpMemo			= Регулярное выражение:
+	FormatMemo			= Формат импорта:
+
+[UI::CorruptionPrefFrame]
+    	Caption 			= Коррупция
+     	Corruption0			= Коррупция  0%
+     	Corruption10		= Коррупция  10%
+     	Corruption25		= Коррупция  25%
+     	Corruption50		= Коррупция  50%
+     	Corruption85		= Коррупция  85%
+     	Corruption95		= Коррупция  95%
+
+
+[UI::ScriptEditFrame]
+	SaveButton.Glyph 	= document-save
+	SaveButton.Hint 	= "Сохранить..."
+	SaveAsButton.Glyph 	= document-save-as
+	SaveAsButton.Hint 	= "Сохранить как..."
+	OpenButton.Glyph	= document-open
+	OpenButton.Hint		= Открыть...
+
+	CutButton.Glyph		= edit-cut
+	CopyButton.Glyph	= edit-copy
+	PasteButton.Glyph	= edit-paste
+	UndoButton.Glyph	= edit-undo
+	RedoButton.Glyph	= edit-redo
+
+	CutMenuItem.Glyph	= edit-cut
+	CopyMenuItem.Glyph	= edit-copy
+	PasteMenuItem.Glyph	= edit-paste
+	UndoMenuItem.Glyph	= edit-undo
+	RedoMenuItem.Glyph	= edit-redo
+
+
+
+
+[UI::ProgressForm]
+	CancelBtn               = Отмена
+	ContinueBtn		= Продолжить
+	RetryBtn		= Повторить
+
+
+[UI::MainForm]
+	ViewMenu 			= Вкладки
+
+	NewTabMenuItem		= Создать новую
+	NewTabMenuItem.ShortCut	= Ctrl+N
+	NewTabMenuItem.Glyph	= tab-new
+
+
+	CloseTabMenuItem		= Закрыть
+	CloseTabMenuItem.ShortCut			= Ctrl+F4
+	CloseTabMenuItem.Glyph	= tab-remove
+
+	CreateTabMenu		= Создать из шаблона
+	CreateTabMenu.Glyph	= tab-new-raised
+
+	StandartTabMenuItem	= Стандартный
+	SetupTabMenuItem	= Настроить...
+
+	CntCloseMenuItem	= Закрыть
+	CntCloseMenuItem.Glyph	= tab-remove
+
+	CntRenameMenuItem	= Переименовать
+	CntSaveTemplateMenuItem	= Сохранить как шаблон...
+
+	CloseMenuItem		= Закрыть
+	RenameMenuItem		= Переименовать
+	SaveTemplateMenuItem	= Сохранить как шаблон...
+
+
+[UI::TabsFrameForm]
+	Caption = DCMap
+
+	ViewMenu 		= Вкладки
+
+	NewTabMenu		= Создать новую
+	NewTabMenu.ShortCut	= Ctrl+N
+	NewTabMenu.Glyph	= tab-new
+
+	RenameTabMenu		= Переименовать
+	SaveTabAsTemplateMenu	= Сохранить как шаблон...
+
+	CloseTabMenu		= Закрыть
+	CloseTabMenu.ShortCut	= Ctrl+F4
+	CloseTabMenu.Glyph	= tab-remove
+
+	CreateTabMenu		= Создать из шаблона
+	CreateTabMenu.Glyph	= tab-new-raised
+
+
+	StandartTabMenu	= Стандартный
+	SetupTabMenu	= Настроить...
+
+	CntCloseMenuItem	= Закрыть
+	CntCloseMenuItem.Glyph	= tab-remove
+
+	CntRenameMenuItem	= Переименовать
+	CntSaveTemplateMenuItem	= Сохранить как шаблон...
+
+
+
+
+[UI::ScriptEditFrame]
+	Caption = "Редактирование выражения"
+
+
+[UI::PlanetGarrisonFrame]
+	Caption = "Содержимое"
+	BuildingsView = "Строения"
+	QueueView="Очередь строительства"
+	GarrisonView="Гарнизон"
+	AddToQueueBtn="Добавить в очередь"
+	
+	BuildingsMenu="Здание"
+	UnitsMenu="Юнит"
+
+
+[UI::SecurityPrefsFrame]
+	Caption = "Безопасность"
+	OldPassword = Старый пароль
+	NewPassword = Новый пароль
+	NewPasswordCheck = Повтор пароля
+	ChangePassword	 = Сменить пароль
+	RememberPasswordTime = Забывать пароль через 
+	MinutesLabel = минут(ы)
+
+[UI::PasswordDialogForm]
+	Caption = "DCMap"
+	OkBtn = Ok
+	CancelBtn = Отмена
+
+[UI::WebBrowserFrame]
+
+	BackBtn.Glyph = go-back
+	ForwardBtn.Glyph = go-forward
+	ReloadBtn.Glyph = reload-page
+	GoBtn.Glyph = go-jump
+	LoginBtn.Glyph = user
+
+[UI::ViewSetupForm]
+    ViewCombo = Основной модуль
+    TopPanels = Вехняя панель
+    BottomPanels = Нижняя панель
+    LeftPanels = Левая панель
+    RightPanels = Правая панель
+
+    MainTab = Основные
+
+    InfoLabel1 = "Модули перетаскиваются мышкой между списками."
+    InfoLabel2 = "Модули перетаскиваются мышкой между списками."
+    InfoLabel3 = "Модули перетаскиваются мышкой между списками."
+
+
+[UI::PlanetEconomyInfoFrame]
+    Caption = Экономика планеты
+
+    BasisImg.Hint = Добыча первички
+    BasisLabel.Hint = Добыча первички
+
+    SecondImg.Hint = Добыча вторички
+    SecondLabel.Hint = Добыча вторички
+
+    MoneyImg.Hint = Добыча кредитов
+    MoneyLabel.Hint = Добыча кредитов
+
+    ProductionImg.Glyph = production
+    ProductionImg.Hint = Производительность планеты
+    ProductionLabel.Hint = Производительность планеты
+
+
+    PeopleGroupBox     = Население
+
+    PeopleConsumeLabel = Занято:
+    PeopleFreeLabel    = Свободно:
+    PeopleTotalLabel    = Всего:
+    GrowthLabel        = Прирост:    
+
+    CorruptionLabel    = Коррупция
+
+[UI::FleetEditFrame]
+    Caption = Параметры
+	NameEdit = Имя флота
+	NameEdit.Hint  	= Если не указано публичное имя флота, это имя будет видно и вам,<br> и другим игрокам. Если вы используете в имени<br> флота двоеточие ":", то группировка будет проводиться не по<br> всему имени флота, а во части имени, которая предшествует двоеточию.
+
+	ExtNameEdit = Публичное имя   
+	ExtNameEdit.Hint 	= Вы можете дать другое имя флоту, видимое только ДРУГИМ<br> игрокам и этим скрыть истинное название флота от них. 
+
+
+	BehavoirGroup	 = Поведение флота
+
+	UnknownBehCombo  = Неизвестный: 
+	NeutralsBehCombo = Нейтральный:
+	VassalBehCombo   = Вассал:
+	EnemiesBehCombo  = Враг:
+	AllyBehCombo     = Союзник: 
+	LordBehCombo     = Лорд:
+
+
+
+
+[UI::FleetColorPrefsFrame]
+	Caption = Флоты
+
+	JumpAvaibilityGroup = Доступность планеты
+
+	FleetStart  = Стартовая
+	Dist1Turn   = 1 ход
+	Dist2Turn   = 2 хода
+	Dist3Turn   = 3 хода
+	MaxDist     = Предельная
+	NormalDist  = Другая 
+
+	OpenPlanetBorder = Рамка открытой плпнеты
+
+	FleetColorsGroup = Цвет флота
+
+	MyFleet        = Свой
+	FleetInTransit = В полёте
+
+	UndefinedFleet = Неопределеный
+	NeutralFleet   = Нейтральный
+	AllyFleet      = Союзник
+	EnemyFleet     = Враг
+
+	IncomingFleet  = Входящий
+	
+
+
+[UI::GameImportSelectForm]
+
+	Glyph	      = data-web-import
+	Caption          = Выбор аккаунтов для загрузки
+
+	SelectAllButton       = Выбрать всё 
+	SelectNoneButton  = СНять выбор
+	ListAllCheckBox     = Показать все доступные
+	ProcessButton        = Загрузить
+	CloseButton            = Закрыть
+
+	PlayersList.Column0 = Аккаунт
+	PlayersList.Column1 = Ход	
+
+
+[UI::FilterSelectForm]
+
+	#Glyph	      = data-web-import
+	Caption       = Выбор фильтра
+
+	OkButton      = Ок 
+	CancelButton  = Отмена
+	DeleteButton  = Удалить
+
+	
+[MapNavView]
+	CenterMenuItem		= Центрировать
+	CopyCoordMenuItem		= Копировать координаты
+	EditPlanetMenuItem	= Редактировать планету
+	DeletePlanetMenuItem	= Удалить планету
+	ClearGeoMenuItem		= Очистить геоданные
+	AddPlanetMenuItem		= Добавить планету
+	MenuName			= Карта
+
+	GotoPlanetInpText		= Введите координаты планеты
+	GotoPlanetInpCaption	= Переход к планете
+
+	DeletePlanetMsgText     = "Вы действительно хотите удалить планету?"
+	DeletePlanetMSGCaption  = "Удаление планеты"
+
+	GotoPlanetMenuItem	= Перейти по координатам...
+	GotoPlanetMenuItem.ShortCut		= Ctrl+G
+
+	CopyInfoMenuItem		= Копировать информацию
+	CopyInfoMenuItem.ShortCut		= Ctrl+Shift+C
+
+	PasteInfoMenuItem		= Вставить информацию
+	PasteInfoMenuItem.ShortCut		= Ctrl+Shift+V
+
+
+[MapLayers]
+	BigGrid		= Крупная Сетка
+	Grid		= Сетка
+	Geology		= Геология
+	Planets		= Планеты
+	Icons		= Значки
+	fleets		= Флоты
+
+[Menues]
+	Data 				= Данные
+	Tools 				= Инструменты
+	Options 			= Параметры
+	View 				= Вкладки
+	Help 				= Помощь
+
+	Import 				= Импортировать...
+	Import.ShortCut		= Ctrl+I
+	Import.Glyph		= data-import
+
+
+	Export 				= Экспортировать...
+	Export.ShortCut		= Ctrl+X
+	Export.Glyph		= data-export
+
+	ExportFiltered		= Экспортировать отфильтрованное...
+	ExportFiltered.ShortCut	= Shift+Ctrl+D
+
+	ExportPlanets			= Экспортировать планеты...
+	ExportPlanets.ShortCut	= Ctrl+D
+	
+	SaveDB				= Сохранить базу данных	
+	SaveDB.ShortCut		= Ctrl+S
+	SaveDB.Glyph			= database-save
+
+	Players				= Список игроков
+	Players.ShortCut= Ctrl+Q
+	Races				= Список рас
+	Races.ShortCut		= Ctrl+W
+	Orgs				= Список организаций
+	Orgs.ShortCut			= Ctrl+E
+
+	Preferencences		= Установки
+	Preferencences.ShortCut	= Ctrl+K
+	Preferencences.Glyph	= application-configure
+
+	MapColor			= Расцветки карты
+	MapColor.ShortCut		= Ctrl+F
+	MapColor.Glyph		= application-colorize
+
+	MapLayers			= Слои карты
+	MapLayers.ShortCut		= Ctrl+H
+	MapIcons			= Значки
+	MapIcons.ShortCut		= Ctrl+J
+	Dip				= Дип. отношения
+	Dip.ShortCut		= Ctrl+P
+
+
+	CloseTab			= Закрыть
+	CloseTab.ShortCut		= Ctrl+F4
+	CreateTab			= Создать из шаблона
+	StandartTab			= Стандартный
+	SetupTab			= Настроить...
+
+	About				= О программе
+	About.ShortCut		= F1
+	CheckUpdates 			= Проверить обновления
+	CheckUpdates.Glyph		= application-update
+
+	CntClose			= Закрыть
+	CntRename			= Переименовать
+	CntSaveTemplate		= Сохранить как шаблон...
+
+	Close			= Закрыть
+	Rename			= Переименовать
+	SaveTemplate		= Сохранить как шаблон...
+
+	DCXMLImport			= Загрузить данные c сервера
+	DCXMLImport.Glyph		= data-web-import
+
+	DCXMLImportSel			= Загрузить выборочно...
+	DCXMLImportSel.Glyph		= data-web-import
+
+	DCXMLSendOrders			= Отправить приказы
+	DCXMLSendOrders.Glyph		= synchronize
+
+	DCXMLSendOrdersOnline		= Отправлять немедленно
+
+
+	Console				= Консоль	
+	Console.Glyph			= script	
+
+	Exit				= Выход
+	Exit.ShortCut			= Alt+F4
+	Exit.Glyph			= application-exit	
+
+[UnitActions]
+	as1 = Разведать 
+	ac1 = Отменить разведку
+
+	as2 = Колонизировать
+	ac2 = Отменить колонизацию
+
+	as3 = Разгрузить
+	ac3 = Не разгужать
+
+	as101 = Начать зачистку
+	ac101 = Отменить зачистку
+	
+	as105 = Начать зачистку тяжелой пехотой
+	ac105 = Отменить зачистку тяжелой пехотой
+
+	as102 = Дать подданство
+	ac102 = Отозвать подданство
+
+
+[#Components]
+
+	b1 = "Шахта"
+	b2 = "Биоферма"
+	b3 = "Генератор"
+	b4 = "Казармы"
+	b5 = "Верфь"
+	b7 = "Колония"
+	b12 = "Дворец"
+	b13 = "Наместник"
+	b14 = "Завод"
+	b22 = "Таможня"
+	b23 = "Контейнер"
+	b24 = "Оприходование"
+	b25 = "Конструкторское бюро"
+	b28 = "Фабрика комплектующих"
+	b30 = "Орбитальное поселение"
+	b31 = "Уплотнитель стази"
+	b32 = "Центр исследований"
+	b33 = "Исследование"
+	b34 = "Специалист"
+	b35 = "Мобильный портал"
+	b36 = "Крестный отец"
+	b39 = "Пробой пространства"
+
+	b501 = "Beta-tester"
+	b502 = "Heavy mech engenear"
+	b503 = "Lasers tooler"
+	b504 = "Buoyager"
+	b505 = "Orbital constructor"
+	b506 = "Leading Orbital Constructor"
+	b507 = "Boarding instructor"
+	b508 = "Good boarding instructor"
+	b509 = "Boarding droids Constructor"
+	b510 = "Scrap collection specialist"
+	b511 = "Scrap collection advanced specialist"
+	b512 = "Asteroids collection specialist"
+	b513 = "Asteroids collection advanced specialist"
+	b514 = "Transportable detectors engenear"
+	b515 = "Former pirate"
+	b516 = "Former smuggler"
+	b517 = "Heavy infantry instructor"
+	b518 = "Convertions specialist"
+	b519 = "Surface-to-Space systems constructor"
+	b520 = "Boring specialist"
+	b521 = "Advanced boring specialist"
+	b522 = "Mining optimisation expert"
+
+	c1 = "Шаттл"
+	c2 = "Коммерческий шаттл"
+	c3 = "Легкий строенный лазер"
+	c4 = "Средний лазер"
+	c5 = "Легкая ракета"
+	c6 = "Броневые листы"
+	c7 = "Лазер ПРО"
+	c8 = "Двигатель Итера"
+	c9 = "Геологоразведчик"
+	c10 = "Движок-невидимка"
+	c11 = "Зонд"
+	c12 = "Малый гипердвигатель"
+	c13 = "Транспортная ячейка"
+	c14 = "Звезда Смерти"
+	c15 = "Двигатель Раша"
+	c16 = "Спаренный двигатель Раша"
+	c18 = "Легкий крейсер"
+	c19 = "Система управления огнем"
+	c20 = "Катер"
+	c21 = "Транспорт"
+	c22 = "Штурмовик"
+	c23 = "Лаборатория"
+	c24 = "Пират"
+	c25 = "Корвет"
+	c26 = "Микрозонд"
+	c27 = "Орбитальная крепость"
+	c28 = "Ниндзя"
+	c29 = "Военный транспорт"
+	c30 = "Москит"
+	c31 = "Сторожевик"
+	c32 = "Рейсовый транспорт"
+	c33 = "Ракетный крейсер"
+	c34 = "Минилаборатория"
+	c35 = "Летучий Голландец"
+	c37 = "Планетарный штурмовик"
+	c38 = "Крейсер"
+	c43 = "Двигатель Итера легкий"
+	c44 = "Спаренный двигатель Итера"
+	c45 = "Сверхлегкий двигатель Итера"
+	c46 = "Двигатель со вторым резонатором"
+	c47 = "Строенный экономичный двигатель"
+	c48 = "Двигатель Пушинка"
+	c49 = "Форсированный двигатель Раша"
+	c50 = "Резонатор удвоенной частоты"
+	c54 = "Плазменная пушка"
+	c55 = "Тяжелый лазер"
+	c56 = "Облегченный лазер"
+	c57 = "Миниатюрный лазер"
+	c58 = "Гиперлазер"
+	c59 = "Лазерная турель"
+	c60 = "Спаренный сверхлегкий лазер"
+	c61 = "Гигантский лазер"
+	c62 = "Спаренная транспортная ячейка"
+	c63 = "Зенитный лазер"
+	c64 = "Пульсовый лазер"
+	c65 = "Спаренный пульсовый лазер"
+	c66 = "Многоцелевой лазер"
+	c67 = "Гиперлазер-II"
+	c72 = "Ракета"
+	c73 = "Игла"
+	c74 = "Спаренная Игла"
+	c75 = "Тяжелая ракета"
+	c76 = "Ракетный комплекс"
+	c77 = "Залповая ракетная система"
+	c78 = "Игла-II"
+	c79 = "Легкая Игла"
+	c80 = "Сверхтяжелая ракета"
+	c85 = "Зеркальная лазерная защита"
+	c86 = "Легкое ПРО"
+	c87 = "Газовая защита от лазеров"
+	c88 = "Керамическая броня"
+	c89 = "Комплексная система защиты"
+	c90 = "Сверхлегкое ПРО"
+	c91 = "Усиленная газовая защита"
+	c92 = "Усиленные лазеры ПРО"
+	c93 = "Легкая комплексная защита"
+	c94 = "Системы наведения помех"
+	c100 = "Детектор"
+	c101 = "Большой детектор"
+	c102 = "Дважды невидимка"
+	c103 = "Портативный детектор"
+	c104 = "Легкая транспортная ячейка"
+	c106 = "Система наведения ракет"
+	c107 = "Обозреватель"
+	c108 = "Силы самообороны"
+	c109 = "Пехота"
+	c110 = "Боевые роботы"
+	c111 = "Танк"
+	c112 = "Бункер"
+	c113 = "Боевые дройды"
+	c114 = "Батарея ПВО"
+	c115 = "Ракетная батарея"
+	c118 = "Тяжелый робот"
+	c121 = "Бакен"
+	c122 = "Орбитальное поселение"
+	c125 = "Тяжелая абордажная команда"
+	c126 = "Абордажные дроиды"
+	c131 = "Мобильная станция слежения"
+	c134 = "Тяжелая пехота"
+	c135 = "Конверсионный проект"
+	c137 = "Батарея ПКО"
+	c141 = "Кибер-дайвер"
+	
+[Actions]
+	ac1  = Отправить флот
+	ac2  = Отменить полёт
+	ac3  = исследовать
+
+
+[Input::UnpackContainerConfirmation]
+
+	Buttons = "Да:1,Нет:0"
+	
+	Caption = "Распаковка контейнеров"
+	Message = "Распаковать ${count>1}?( $count контейнер(ов)):( контейнер)?"	
+
+
+[Input::DisbandUnitConfirmation]
+
+	Buttons = "Да:1,Нет:0"
+	
+	Caption = "Роспуск юнитов"
+	Message = "Распустить ${count>1}?( $count юнит(ов)):( юнит)?"	
+
+
+[Input::FilterSaveSetupNameQuery]
+	Style = InputCombo	
+
+	Buttons = "Ок:1,Отмена:0"
+	
+	Caption = "Сохранение фильтра"
+	Message = "Введите имя фильтра"	
+
+
+[Input::RenameFrameTab]
+	Style = Input	
+	Buttons = "Ок:1,Отмена:0"
+	Caption = "Переименование вкладки"
+	Message = "Введите новое имя вкладки"	
+
+
+[Input::TabTemplateCreation]
+	Style = Input	
+	Buttons = "Ок:1,Отмена:0"
+	Caption = "Сохранение шаблона"
+	Message = "Введите имя шаблона"	
+
+

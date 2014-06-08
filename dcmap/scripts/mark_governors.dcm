@@ -1,0 +1,9 @@
+﻿iterate_all planets {
+$governors || continue;
+echo "[$x:$y] $caption  $governors";
+icon2='Наместник';
+post;
+};
+
+
+

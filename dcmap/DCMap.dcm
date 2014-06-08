@@ -1,0 +1,425 @@
+﻿
+global sub getdcxml 
+{
+	my $login,$pass,$sec= $_;
+	my %post = 'action' => 'login', 'login' => $login, 'pwd' => $pass;
+	my $r = webpost "$gameurl/frames/empire_info/on/$sec/asxml/", urlencode($post);
+	return $r;
+}
+
+module dcm_sys : core_daemon
+{
+
+	sub DCXMLImportPlayer
+	{
+		select($_) or return 0;
+	
+	 	my $player_name = $name;
+		my $player_id = $id;
+	
+		echo "Импортируем данные для '$name'"
+	
+		echo "\tЗагружаем общие данные"
+	
+		my $g = getdcxml($login,$password,'all');
+		test_cancel()?return;
+		if(!$g){
+			echo 'Не удалось :(';
+			echo 'Проверьте, что у вас не закончилась подписка, а также наличие подключения к интернет.';
+			my $r = pause('Продолжить ?',pause_cancel,pause_continue,pause_retry);
+			if($r == pause_retry) return 2;
+			else if($r == pause_continue)return 0;
+			return -1;
+		}
+	
+		echo "\tЗагружаем известные планеты"
+	
+		my $p = getdcxml($login,$password,'known_planets');
+		test_cancel()?return 0;
+		if(!$p){
+			echo 'Не удалось :(';
+			echo 'Проверьте, что у вас не закончилась подписка, а также наличие подключения к интернет.';
+			my $r = pause('Продолжить ?',pause_cancel,pause_continue,pause_retry);
+			if($r == pause_retry) return 2;
+			else if($r == pause_continue)return 0;
+			return -1;
+		}
+	
+		echo '\tИмпортируем общие данные';
+	
+		my $result = services.XMLProcessor.process($g,$player_id);
+	
+		if($result = 2)
+		{
+			echo 'В настоящий момент производится расчёт хода, пожайлуста обратитесь позже';
+			pause('Продолжить');
+			return -1;
+		}
+		if($result = 3)
+		{
+			echo 'Не удалось :(';
+			echo 'Проверьте правильность логина/пароля.';
+			if pause('Продолжить ?') return 0;
+			return -1;
+		}
+		else if($result != 1)
+		{
+			echo 'Не удалось :(';
+			echo 'Проверьте, что у вас не закончилась подписка, а также наличие подключения к интернет.';
+			my $r = pause('Продолжить ?',pause_cancel,pause_continue,pause_retry);
+			if($r == pause_retry) return 2;
+			else if($r == pause_continue)return 0;
+			return -1;
+		}
+	
+		echo '\tИмпортируем известные планеты';
+		my $result = services.XMLProcessor.process($p,$player_id);
+	
+		echo "\tГотово.";
+		test_cancel()?return -1;
+	
+		return 1;
+	}
+	
+	sub PostDCXMLImport {
+	
+		sub GetPlayerNameByID
+		{
+			my $PId = $_;
+			my $r = webget "http://new.the-game.ru/ru/frames/playerinfo/on/$PId"
+			$r =~ |>([^<]+)</h1>|;
+			xmlunqoute($1)
+		}
+		echo 'Группируем флоты';
+		services.FleetGrouping.ProcessFleets();
+	
+		echo "Обновляем список игроков";
+		my %bp;
+		iterate_all players {
+			$name == "!Unknown_$user_id" ?: continue;
+	
+			echo "\tПолучяем имя игрока с id $user_id ";
+			my $n = GetPlayerNameByID($user_id);
+			if($n) {
+				echo "\tПолучено '$n'";
+				set $bp[$user_id] = $n;
+			}
+			else {echo "\tНеудачно."}
+			test_cancel()?return;
+		}
+	
+		foreach my $it ($bp) {
+			table players;
+			name = $it[0];
+			retrieve;
+	
+			my $n = "!Unknown_${it[1]}"
+	
+			iterate_all planets {($owner==$n):continue; owner=$it[0];post}
+	
+			table players;
+			name = $n;
+			select?delete;
+	
+			table players;
+			name = $it[0];
+			select;
+			user_id = $it[1];
+			post;
+	
+			#echo "changed $n => ${it[0]} ";
+			test_cancel()?return;
+		}
+	
+		#echo "Удаляем устаревшие планеты";
+		#iterate_all planets {($owner.turn>$turn)?delete;}
+	}
+	
+	sub DCXMLImportContext {
+		datatables.secrets.OpenSession() or return;
+	
+		show_console;
+		clear_console;
+		console_caption "Импорт данных через XML интерфейс D&C";
+	
+		my $r=2;
+		while($r == 2){ set $r = DCXMLImportPlayer($_); }
+	
+	        PostDCXMLImport();
+	
+		datatables.secrets.EndSession();
+		hide_console;
+	}
+	
+	sub DCXMLImportContextTest
+	{
+		select($_) or return 0;
+		return ($login and $password);
+	}
+	
+	
+	sub DCXMLImport {
+	
+		datatables.secrets.OpenSession() or return;
+	
+		show_console;
+	
+		clear_console;
+		console_caption "Импорт данных через XML интерфейс D&C";
+	
+		my $good=0;
+		my $tryed=0;
+	
+		iterate_all players
+		{
+		    ($web_access and $login and $password) or continue;
+	
+	        set $tryed=1;
+			my $r=2;
+	
+			while($r == 2){set $r = DCXMLImportPlayer($id);}
+	
+			if($r == 0)continue;
+			if($r == -1)break;
+	
+			set $good=1;
+		}
+		if(!$good)
+		{
+			if(!$tryed)
+			{
+			   echo  'Нет акаунтов, для которых можно импортировать данные.';
+	           pause 'Нет акаунтов, для которых можно импортировать данные.',PAUSE_QUIT;
+			}
+			datatables.secrets.EndSession();
+			return nil;			
+		}
+	
+	    PostDCXMLImport();
+	
+		datatables.secrets.EndSession();
+		hide_console;
+	}
+	
+	sub DCXMLImportPlayers 
+	{
+		datatables.secrets.OpenSession() or return;
+	
+		show_console;
+	
+		clear_console;
+		console_caption "Импорт данных через XML интерфейс D&C";
+	
+		my $good=0;
+		my $tryed=0;
+	
+		foreach my $pid ($_)
+		{
+	         	set $tryed=1;
+			my $r=2;
+	
+			while($r == 2){set $r = DCXMLImportPlayer($pid);}
+	
+			if($r == 0)continue;
+			if($r == -1)break;
+	
+			set $good=1;
+		}
+		if(!$good)
+		{
+			if(!$tryed)
+			{
+			   echo  'Нет акаунтов, для которых можно импортировать данные.';
+	           pause 'Нет акаунтов, для которых можно импортировать данные.',PAUSE_QUIT;
+			}
+			datatables.secrets.EndSession();
+			hide_console;
+			return nil;			
+		}
+	
+	    	PostDCXMLImport();
+	
+		datatables.secrets.EndSession();
+		hide_console;
+	}
+	
+	
+	sub DCXMLSendPlayerOrders
+	{
+		table players;
+		select($_) or return;
+	
+		my $player_name = $name;
+		
+		HaveActions($player_name) or return;
+	
+	
+		echo "Отправлям приказы для '$player_name'"
+	
+		my $n=1;
+		my $req;
+		my $i=0;
+	
+		use services.ActionProcessor;
+		
+		while($n && $i < 128)
+		{
+			set $req,$n = MakeRequest($player_name);
+			if($n) 
+			{			
+				if(_DEBUG) savefile "$dcmapdir/temp/$login-req$i.xml",$req;
+	
+				my %post = 'action' => 'login', 'login' => $login, 'pwd' => $password, 'xactions'=> $req;
+				my $r = webpost "http://new.the-game.ru/frames/perform_x_actions/on/1/asxml/", urlencode($post);
+				test_cancel()?break;
+		
+				if(_DEBUG) savefile "$dcmapdir/temp/$login-actions$i.xml",$r;
+		
+				my $pr = ProcessResponse($player_name,$r);
+				
+				if(!$pr > 1)return;
+				if($pr == 0)break;
+				
+				inc $i;
+			}
+		}
+		DropActions($player_name); # drop invalid actions
+	}
+	
+	
+	sub DCXMLSendOrders
+	{
+		datatables.secrets.OpenSession() or return;
+		show_console;
+		console_caption "Отправляем приказы";
+		
+		iterate_all players 
+		{ 
+			($web_access and $login and $password)?:continue;
+	
+			DCXMLSendPlayerOrders($id);
+		}
+		datatables.secrets.EndSession();
+	}
+	
+	sub DCXMLSendOrdersContext {
+		datatables.secrets.OpenSession() or return;
+		show_console;
+		clear_console;
+		console_caption "Отправляем приказы";
+	
+		DCXMLSendPlayerOrders($_);
+	
+		datatables.secrets.EndSession();
+		hide_console;
+	}
+	
+	sub DCXMLSendOrdersContextTest
+	{
+		select($_) or return 0;
+		return $login and $password and services.ActionProcessor.HaveActions($name);
+	}
+	
+	sub OnDCXMLSendOrdersOnline
+	{
+		my $ActProc = services.ActionProcessor;
+		set $ActProc.Online = $DCXMLSendOrdersOnline.Checked;
+		set $DCXMLSendOrders.Visible = !services.ActionProcessor.Online;
+	}
+	
+	
+	add_menu 'Data:10', 'Data'
+	
+	
+	add_menu 'Data/Import:1', 'Import...', sub{services.DataImportForm.ShowModal();};
+	add_menu 'Data/Export:1', 'Export...', sub{services.DataExportForm.ShowModal();};
+	
+	add_menu 'Data/:2', '-';
+	add_menu 'Data/DCXMLImport:2', 'XML Dataget...', $DCXMLImport;
+	
+	add_menu 'Data/DCXMLImportSel:2', 'XML Dataget Selected...', sub{services.GameImportSelectForm.ShowModal();};
+	
+	
+	my $DCXMLSendOrders = add_menu 'Data/DCXMLSendOrders:2', 'XML SendOrders...', $DCXMLSendOrders;
+	
+	my $DCXMLSendOrdersOnline = add_menu 'Data/DCXMLSendOrdersOnline:2', 'XML SendOrders Online', $OnDCXMLSendOrdersOnline;
+	
+	set $DCXMLSendOrdersOnline.Check   = 1;
+	set $DCXMLSendOrdersOnline.Checked = services.ActionProcessor.Online;
+	
+	set $DCXMLSendOrders.Visible = !services.ActionProcessor.Online;
+	
+	
+	add_menu 'Data/:3', '-';
+	add_menu 'Data/SaveDB:3', 'Save Database', sub{save_db};
+	add_menu 'Data/Exit:3', 'Exit', sub{sysexit};
+	
+	#--------------------------------------------------------------------------------------------
+	
+	add_menu 'Tools:30', 'Tools';
+	
+	add_menu 'Tools/Players:1', 'List Players', sub{edit_table 'players';};
+	add_menu 'Tools/Races:1', 'List Races', sub{edit_table 'races';};
+	add_menu 'Tools/Orgs:1', 'List POrgs', sub{edit_table 'organizations';};
+	add_menu 'Tools/:10', '-';
+	add_menu 'Tools/Console:10', 'Console', sub{services.ConsoleForm.Show();};
+	
+	add_menu 'Options:60', 'Options';
+	add_menu 'Options/Preferencences:1', 'Preferencences', sub{services.PreferencencesForm.ShowModal();};
+	add_menu 'Options/:1', '-';
+	add_menu 'Options/MapColor:2', 'Colors', sub{edit_table 'coloring';};
+	add_menu 'Options/MapLayers:2', 'Layers', sub{edit_table 'layers';};
+	add_menu 'Options/MapIcons:2', 'Icons', sub{edit_table 'icons';};
+	add_menu 'Options/Dip:2', 'Dip', sub{edit_table 'dip';};
+	
+	#--------------------------------------------------------------------------------------------
+	
+	add_menu 'Help:90', 'Help';
+	
+	add_menu 'Help/CheckUpdates:1', 'About...', sub{services.WebProcess.CheckUpdates();};
+	add_menu 'Help/:2', '-';
+	add_menu 'Help/About:2', 'About...', sub{services.AboutForm.ShowModal();};
+	
+	add_context_menu 'players_record', 'DCXMLSendOrders:10', 'Send orders',$DCXMLSendOrdersContext,$DCXMLSendOrdersContextTest
+	add_context_menu 'players_record', 'DCXMLImport:11', 'XML Dataget...',$DCXMLImportContext,$DCXMLImportContextTest
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

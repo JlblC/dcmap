@@ -1,0 +1,21 @@
+﻿
+use services.FleetManager;
+
+iterate_all players
+{
+	$dip == 'Мульт' ?: continue;
+
+    echo '--------------------------------------------';
+    echo "player: $name";
+
+	my $pid = $name;
+	iterate_all fleets
+	{
+		if($type != 2 or $owner != $pid or $deleted or $outdated) continue;
+
+		MoveFleetTo($id,652,524);
+	};
+};
+
+
+

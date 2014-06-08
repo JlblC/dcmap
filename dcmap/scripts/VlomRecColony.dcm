@@ -1,0 +1,367 @@
+# Вломоскрипт VlomRecColony или " куда бы еще высадить зеленочеловечков?"
+
+# Выбор наилучшего места для колонии по всеразличным критериям
+
+# 
+
+# Сразу предупреждаю, что проверок на корректность исходных данных нет почти никаких. 
+
+# Скрипт хочет, чтоб в базе были данные об игроках, игроки были связаны с расами, 
+
+# у рас был вбит температурный диапазон и база/первичка/вторичка. Ну и естественно должны быть внесены
+
+# планеты. Ну влом мне проверки писать!  Впрочем, если чего-то не будет – ничего страшного.  
+
+##########################################################################################
+
+object menu_handler{
+
+my x,y = $_;
+
+sub handle{
+
+goto_cell x,y;
+
+clipboard = «$x:$y»;
+
+} }
+
+#################################################
+
+
+
+
+
+add_menu 'VlomRecColony:5', 'Совет';
+
+
+
+# Оценка планеты по вырабатываемым кредитам _без_построек_ .
+
+sub GetPower {
+
+my $xx=$_[0];
+
+my $yy=$_[1];
+
+my $bs=$_[2]; # база
+
+my $fs=$_[3]; # первичка
+
+my $sd=$_[4]; # вторичка
+
+my $ss=$_[5]; # размер
+
+
+
+table planets;
+
+x=$xx;
+
+y=$yy;
+
+select or die;
+
+my $fs1;
+
+my $sd1;
+
+$fs=0 ? set $fs1=$o;
+
+$fs=1 ? set $fs1=$e;
+
+$fs=2 ? set $fs1=$m;
+
+$sd=0 ? set $sd1=$o;
+
+$sd=1 ? set $sd1=$e;
+
+$sd=2 ? set $sd1=$m;
+
+
+
+my $incom1=$ss*2000*$fs1/160000;
+
+my $incom2=$ss*2000*$fs2/160000/2;
+
+my $incom=$ss*2000/25000+($incom1+$incom2)/5;
+
+
+
+return $incom;
+
+}
+
+
+
+# Оценка планеты по вырабатываемой первичке с полной застройкой добывалками.
+
+sub GetMeat {
+
+my $xx=$_[0];
+
+my $yy=$_[1];
+
+my $bs=$_[2]; # база
+
+my $fs=$_[3]; # первичка
+
+my $sd=$_[4]; # вторичка
+
+my $ss=$_[5]; # размер
+
+
+
+table planets;
+
+x=$xx;
+
+y=$yy;
+
+select or die;
+
+my $fs1;
+
+$fs=0 ? set $fs1=$o;
+
+$fs=1 ? set $fs1=$e;
+
+$fs=2 ? set $fs1=$m;
+
+my $bonus_ss=floor($ss*2000/5000)/5+1;
+
+
+
+my $incom=$ss*2000*$fs1/160000*$bonus_ss;
+
+
+
+return $incom;
+
+}
+
+
+
+# Радиус полёта зонда – взят несколько от балды. Он используется для определения «зоны интересов игрока».
+
+# Короче, это дистанция, на которую может прыгнуть ваш транспорт с колонией. 
+
+# Еще раз повторяю – это вломоскрипт, а не ИскИн, а потому метод «от балды» является преобладающим.
+
+my $ZondRange=10;
+
+
+
+
+
+# Через своеобразную %опу получаю эту самую «зону интересов игрока». Каждого игрока.
+
+my %plans;
+
+my %xmins;
+
+my %ymins;
+
+my %xmaxs;
+
+my %ymaxs;
+
+iterate_all planets{
+
+$owner !? continue;
+
+if $plans[$owner] {set $plans[$owner]=$plans[$owner]+1}
+
+else {set $plans[$owner]=1};
+
+$xmins[$owner] !? set $xmins[$owner]=$x;
+
+$xmaxs[$owner] !? set $xmaxs[$owner]=$x;
+
+$ymins[$owner] !? set $ymins[$owner]=$y;
+
+$ymaxs[$owner] !? set $ymaxs[$owner]=$y;
+
+$xmins[$owner]>$x ? set $xmins[$owner]=$x;
+
+$xmaxs[$owner]<$x ? set $xmaxs[$owner]=$x;
+
+$ymins[$owner]>$y ? set $ymins[$owner]=$y;
+
+$ymaxs[$owner]<$y ? set $ymaxs[$owner]=$y;
+
+}
+
+
+
+my @plss;
+
+iterate_all players {
+
+# Если у игрока меньше, чем одна планета, то не проигнорировать ли его?
+
+($plans[$name]<1) ? continue;
+
+
+
+set $xmins[$name]=$xmins[$name]-$ZondRange;
+
+set $xmaxs[$name]=$xmaxs[$name]+$ZondRange;
+
+set $ymins[$name]=$ymins[$name]-$ZondRange;
+
+set $ymaxs[$name]=$ymaxs[$name]+$ZondRange;
+
+
+
+push plss, $name;
+
+}
+
+
+
+# Вот мы и поимели кооринаты зоны интересов игроков(примерно, т.к. $ZondRange один для всех).
+
+# Теперь, перебирая в ней все планеты, проверяем их пригодность и выбираем лучшую.
+
+
+
+# Перебираем игроков.
+
+my $UserN=1;
+
+foreach my $plrr plss {
+
+my $kingsize=1;
+
+my $kingX=0;
+
+my $kingY=0;
+
+my $power=0;
+
+my $powerX=0;
+
+my $powerY=0;
+
+my $meat=0;
+
+my $meatX=0;
+
+my $meatY=0;
+
+
+
+# Получаем основные данные о игроке и его расе
+
+table players;
+
+name=$plrr;
+
+select;
+
+my $rc=$race;
+
+table races;
+
+name=$rc
+
+select;
+
+my $tml=$tmin;
+
+my $tmm=$tmax;
+
+my $nn=$nature;
+
+my $bss=$basis;
+
+my $snd=$second;
+
+# А еще можно получить вон чего:
+
+#min_growth;mining;growth;science;speed;defence;prices;civil_production;military_production;hitpoints;damage;detection;stealth;race_id
+
+# Но это нам не надо.
+
+
+
+# Шевелим планетами:
+
+iterate_all planets
+
+{
+
+# Планета занята? следующая!
+
+$owner ? continue;
+
+# Проверяем на её нахождение в «зоне интересов»
+
+if ((($x>$xmins[$plrr]) and ($x<$xmaxs[$plrr])) and (($y>$ymins[$plrr]) and ($y<$ymaxs[$plrr]))) {
+
+
+
+# 
+
+# Проверяем на температурный диапазон.
+
+# Следует отметить, что проверка не вполне, ибо реально приемлемый диапазон вроде бы несколько шире.
+
+if (($t>=$tml) and ($t<=$tmm)) {
+
+if $kingsize<$s {
+
+set $kingsize=$s;
+
+set $kingX=$x;
+
+set $kingY=$y;
+
+# echo("kingsize! "::$s::$kingX);
+
+}
+
+if $power<GetPower($x,$y,$nn,$bss,$snd,$s) {
+
+set $power=GetPower($x,$y,$nn,$bss,$snd,$s);
+
+set $powerX=$x;
+
+set $powerY=$y;
+
+}
+
+if $meat<GetMeat($x,$y,$nn,$bss,$snd,$s) {
+
+set $meat=GetMeat($x,$y,$nn,$bss,$snd,$s);
+
+set $meatX=$x;
+
+set $meatY=$y;
+
+}
+
+}
+
+}
+
+}
+
+# Делаем менюшки
+
+my $MenuName="VlomRecColony/User$UserN";
+
+add_menu $MenuName, $plrr;
+
+add_menu $MenuName::'/BySize','По размеру : '::"$kingX:$kingY", menu_handler($kingX,$kingY).handle;
+
+add_menu $MenuName::'/ByPower','По производству : '::"$powerX:$powerY", menu_handler($powerX,$powerY).handle;
+
+add_menu $MenuName::'/ByMeat','Для мяса : '::"$meatX:$meatY", menu_handler($meatX,$meatY).handle;
+
+
+
+set $UserN = $UserN+1;
+
+}

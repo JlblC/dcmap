@@ -1,0 +1,32 @@
+# имя игрока
+my $player ='Dark Knight';
+# Коэффициэтны значения добычи:
+my $k_basis  = 1.0;   # первички
+my $k_second = 1.0;   # вторички
+my $k_money  = 1.0;   # денег
+# минимальная коррупция на индустриальных планетах
+my $industrial_cor = 10;
+# путь к dcgov
+my $targetdir = $dcmapdir::'dcgov/' 
+
+##########################################################################################
+my $calc = services.PlanetCalculator.calc_value;
+my $out,$out_hw;
+my $GovCount=0;
+iterate_all planets
+{
+    $owner==$player or continue;
+	my $v = calc($x,$y);
+	my $value = round(($v.basis * $k_basis+ $v.second * $k_second + $v.money * $k_money)*10);
+	my $max_cor = -1;
+	set $GovCount = $GovCount+$governors;
+	if($industrial) set $max_cor = $industrial_cor;
+	if($bounds) set $value = 0;
+	my $oline = "$x:$y;$value;$max_cor${$unsafe||$bounds}?(!)\n";
+	if($homeworld){print $out_hw, $oline}else{print $out, $oline};
+};
+savefile "${targetdir}dcgov.csv", $out_hw::$out;
+savefile "${targetdir}dcgov.bat", qq("${targetdir}dcgov.exe" "${targetdir}dcgov.csv" $GovCount \npause);
+`cmd /c start ${targetdir}dcgov.bat`
+
+

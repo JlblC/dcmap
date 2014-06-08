@@ -1,0 +1,52 @@
+object PropPageFrame: TPropPageFrame
+  Left = 0
+  Top = 0
+  Width = 359
+  Height = 226
+  ParentBackground = False
+  TabOrder = 0
+  TabStop = True
+  object Tabs: TsTabControl
+    Left = 0
+    Top = 0
+    Width = 359
+    Height = 226
+    Align = alClient
+    Font.Charset = RUSSIAN_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    MultiLine = True
+    ParentFont = False
+    TabOrder = 0
+    OnChange = TabsChange
+    OnGetImageIndex = TabsGetImageIndex
+    SkinData.SkinSection = 'PAGECONTROL'
+    object ClientPanel: TsPanel
+      AlignWithMargins = True
+      Left = 4
+      Top = 9
+      Width = 351
+      Height = 213
+      Margins.Left = 0
+      Margins.Right = 0
+      Margins.Bottom = 0
+      Align = alClient
+      BevelOuter = bvNone
+      Font.Charset = RUSSIAN_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 0
+      SkinData.SkinSection = 'CHECKBOX'
+    end
+  end
+  object sFrameAdapter: TsFrameAdapter
+    SkinData.SkinSection = 'CHECKBOX'
+    Left = 8
+    Top = 8
+  end
+end

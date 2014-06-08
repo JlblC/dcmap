@@ -1,0 +1,38 @@
+﻿<html>
+<head>
+<META NAME="WIDTH"  CONTENT="500">
+<META NAME="HEIGHT" CONTENT="600">
+<title>Планеты мультов</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<script language="dcm">$name</script>
+<div align="center">
+<table width="414" border="0">
+  <tr>
+    <td width="25" height="30"><input name="Prev" type="button" id="Prev" onClick="FirstPlayer();" value="&lt;&lt;"></td>
+    <td width="25" align="center" valign="middle"><input name="Prev2" type="button" id="Prev2" onClick="PrevPlayer();" value="&lt;"></td>
+    <td width="289" align="center" valign="middle"><font size="+2" face="Times New Roman, Times, serif"><!--#dcm eval="$pname" --></font></td>
+    <td width="25" align="center" valign="middle"><input name="Next2" type="button" id="Next2" onClick="NextPlayer();" value="&gt;"></td>
+    <td width="28" height="30"><input name="Next" type="button" id="Next" onClick="LastPlayer();" value="&gt;&gt;"></td>
+  </tr>
+  <tr>
+    <td height="54" colspan="5" valign="top">
+      <font color="#000000">
+      <table width="100%" border="1" cellpadding="2" cellspacing="0" bordercolor="#FFCC66" bgcolor="#FFFFCC">
+        <tr>
+          <td width="40" align="center"><strong>x</strong></td>
+          <td width="40" align="center"><strong>y</strong></td>
+          <td width="30" align="center"><strong>o</strong></td>
+          <td width="30" align="center"><strong>e</strong></td>
+          <td width="30" align="center"><strong>m</strong></td>
+          <td width="30" align="center"><strong>t</strong></td>
+          <td width="30" align="center"><strong>s</strong></td>
+          <td align="center"><strong>название</strong></td>
+        </tr>
+		<!--#dcm eval="$make_planet_list()" -->
+	  </table></font>    </td>
+  </tr>
+</table>
+</div>
+</body>
+</html>

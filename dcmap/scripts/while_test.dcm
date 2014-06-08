@@ -1,0 +1,22 @@
+﻿clear_console;
+echo '--------------';
+set $x1=100;
+set $x2=200;
+set $y1=100;
+set $y2=200;
+
+my $i=$x1;
+
+while ($i<=$x2)
+{
+ my $j=$y1;
+ while ($j<=$y2)
+ {
+   set $j = $j + 1;
+ };
+  set $i = $i + 1;
+#2
+};
+#3
+
+

@@ -1,0 +1,6 @@
+[Menues]
+	DCMapGlobeUpdate = "Обновить глобус РиВ"
+	DCMapGlobeUpdate.Glyph  = globe
+[MapLayers]
+	globe = "Глобус"
+	

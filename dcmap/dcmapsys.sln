@@ -1,0 +1,58 @@
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gsyslib", "..\gsyslib\src\gsyslib.vcproj", "{F58C9F2A-682F-406D-B66A-A2FE69B319EE}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "dcmapsys", "dcmapsys\dcmapsys.vcproj", "{DDC1F301-8B35-4553-8ADC-0D6481862794}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F58C9F2A-682F-406D-B66A-A2FE69B319EE} = {F58C9F2A-682F-406D-B66A-A2FE69B319EE}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "basic_interface_example", "..\dcmap_dev\plugins\examples\basic_interface_example\basic_interface_example.vcproj", "{BC2316C3-8FD0-4706-ADDB-32E2979F6715}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "dcmacro", "dcmacro\dcmacro.vcproj", "{046F1BCB-E4CB-45E1-B147-A7C64F623B3A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DDC1F301-8B35-4553-8ADC-0D6481862794} = {DDC1F301-8B35-4553-8ADC-0D6481862794}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "geckoview", "geckoview\geckoview.vcproj", "{B9E96DA9-46B8-4DDA-80D7-ADE2FCD21BDE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DDC1F301-8B35-4553-8ADC-0D6481862794} = {DDC1F301-8B35-4553-8ADC-0D6481862794}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F58C9F2A-682F-406D-B66A-A2FE69B319EE}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F58C9F2A-682F-406D-B66A-A2FE69B319EE}.Debug|Win32.Build.0 = Debug|Win32
+		{F58C9F2A-682F-406D-B66A-A2FE69B319EE}.Release|Win32.ActiveCfg = Final_SL|Win32
+		{F58C9F2A-682F-406D-B66A-A2FE69B319EE}.Release|Win32.Build.0 = Final_SL|Win32
+		{DDC1F301-8B35-4553-8ADC-0D6481862794}.Debug|Win32.ActiveCfg = Debug|Win32
+		{DDC1F301-8B35-4553-8ADC-0D6481862794}.Debug|Win32.Build.0 = Debug|Win32
+		{DDC1F301-8B35-4553-8ADC-0D6481862794}.Release|Win32.ActiveCfg = Release|Win32
+		{DDC1F301-8B35-4553-8ADC-0D6481862794}.Release|Win32.Build.0 = Release|Win32
+		{BC2316C3-8FD0-4706-ADDB-32E2979F6715}.Debug|Win32.ActiveCfg = Debug|Win32
+		{BC2316C3-8FD0-4706-ADDB-32E2979F6715}.Debug|Win32.Build.0 = Debug|Win32
+		{BC2316C3-8FD0-4706-ADDB-32E2979F6715}.Release|Win32.ActiveCfg = Release|Win32
+		{BC2316C3-8FD0-4706-ADDB-32E2979F6715}.Release|Win32.Build.0 = Release|Win32
+		{046F1BCB-E4CB-45E1-B147-A7C64F623B3A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{046F1BCB-E4CB-45E1-B147-A7C64F623B3A}.Debug|Win32.Build.0 = Debug|Win32
+		{046F1BCB-E4CB-45E1-B147-A7C64F623B3A}.Release|Win32.ActiveCfg = Release|Win32
+		{046F1BCB-E4CB-45E1-B147-A7C64F623B3A}.Release|Win32.Build.0 = Release|Win32
+		{B9E96DA9-46B8-4DDA-80D7-ADE2FCD21BDE}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B9E96DA9-46B8-4DDA-80D7-ADE2FCD21BDE}.Debug|Win32.Build.0 = Debug|Win32
+		{B9E96DA9-46B8-4DDA-80D7-ADE2FCD21BDE}.Release|Win32.ActiveCfg = Release|Win32
+		{B9E96DA9-46B8-4DDA-80D7-ADE2FCD21BDE}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		VisualSVNWorkingCopyRoot = .
+	EndGlobalSection
+	GlobalSection(DPCodeReviewSolutionGUID) = preSolution
+		DPCodeReviewSolutionGUID = {00000000-0000-0000-0000-000000000000}
+	EndGlobalSection
+EndGlobal

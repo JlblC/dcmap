@@ -1,0 +1,8 @@
+# KDevelop Custom Project File List
+DCMapCore.h
+Makefile
+PlanetDataStorage.cpp
+PlanformPosix.cpp
+libtest
+libtest/Makefile
+libtest/libtest.cpp

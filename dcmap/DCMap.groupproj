@@ -1,0 +1,60 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{8AE258A0-FE44-4210-904D-0CE4DA3DCCB5}</ProjectGuid>
+		</PropertyGroup>
+		<ItemGroup>
+			<Projects Include="dcMap.cbproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="WebTest\WebTest.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="E:\bpls6\Thtml\package\FrameViewer2009.dproj">
+				<Dependencies/>
+			</Projects>
+		</ItemGroup>
+		<ProjectExtensions>
+			<Borland.Personality>Default.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Default.Personality/>
+			</BorlandProject>
+		</ProjectExtensions>
+		<Target Name="dcMap">
+			<MSBuild Projects="dcMap.cbproj"/>
+		</Target>
+		<Target Name="dcMap:Clean">
+			<MSBuild Targets="Clean" Projects="dcMap.cbproj"/>
+		</Target>
+		<Target Name="dcMap:Make">
+			<MSBuild Targets="Make" Projects="dcMap.cbproj"/>
+		</Target>
+		<Target Name="WebTest">
+			<MSBuild Projects="WebTest\WebTest.dproj"/>
+		</Target>
+		<Target Name="WebTest:Clean">
+			<MSBuild Targets="Clean" Projects="WebTest\WebTest.dproj"/>
+		</Target>
+		<Target Name="WebTest:Make">
+			<MSBuild Targets="Make" Projects="WebTest\WebTest.dproj"/>
+		</Target>
+		<Target Name="FrameViewer2009">
+			<MSBuild Projects="E:\bpls6\Thtml\package\FrameViewer2009.dproj"/>
+		</Target>
+		<Target Name="FrameViewer2009:Clean">
+			<MSBuild Targets="Clean" Projects="E:\bpls6\Thtml\package\FrameViewer2009.dproj"/>
+		</Target>
+		<Target Name="FrameViewer2009:Make">
+			<MSBuild Targets="Make" Projects="E:\bpls6\Thtml\package\FrameViewer2009.dproj"/>
+		</Target>
+		<Target Name="Build">
+			<CallTarget Targets="dcMap;WebTest;FrameViewer2009"/>
+		</Target>
+		<Target Name="Clean">
+			<CallTarget Targets="dcMap:Clean;WebTest:Clean;FrameViewer2009:Clean"/>
+		</Target>
+		<Target Name="Make">
+			<CallTarget Targets="dcMap:Make;WebTest:Make;FrameViewer2009:Make"/>
+		</Target>
+		<Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+	</Project>

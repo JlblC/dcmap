@@ -1,0 +1,7 @@
+
+DCMAPSYS {
+  global:
+    dcmapsys*;
+  local:
+    *;
+};

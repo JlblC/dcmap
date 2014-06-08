@@ -1,0 +1,14 @@
+﻿
+my $calc = services.PlanetCalculator.calculate;
+
+iterate_all planets
+{
+	$owner.dip='Мульт' or continue;
+	my $r = calc($x,$y);
+
+	echo "$x:$y $name ${round(r.basis,2)} ${round(r.second,2)}"
+};
+
+
+
+

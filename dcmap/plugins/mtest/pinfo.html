@@ -1,0 +1,33 @@
+﻿<html>
+<head>
+<META NAME="HEIGHT" CONTENT="120">
+<title>Информация о планете [HTML]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table id="main_table" width="100%" border="0">
+  <tr>
+    <td valign="middle">Координаты</td>
+    <td width="100%" valign="middle"><input type=text id="coords" value="<!--#dcm eval='$Coord' -->" size=9 maxlength=9>
+      <input name="Button" type="button" onClick="centre_cell $Coord; doc.main_table.visible=0;reformat" value="c"></td>
+  </tr>
+  <tr>
+    <td align="right">Название:</td>
+    <td>&nbsp;<a href='dcm:EditPlanet()'>
+      <!--#dcm eval="$PName" -->
+      </a></td>
+  </tr>
+  <tr>
+    <td align="right">Владелец:</td>
+    <td >&nbsp;<a href='dcm:EditPlayer()'>
+      <!--#dcm eval="$Owner" -->
+      </a></td>
+  </tr>
+  <tr>
+    <td height="23" colspan="2" align="center" valign="middle"><strong><font size='+1' face="Courier New, Courier, monospace">
+      <!--#dcm eval="$s?qq(o:$O e:$E m:$M t:$T s:$S ):'&nbsp;'" -->
+      </font></strong></td>
+  </tr>
+</table>
+</body>
+</html>

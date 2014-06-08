@@ -1,0 +1,88 @@
+
+
+my GlobeUpdateSite = 'http://www.f-gl.ru/Globe.csv';
+
+
+sub GlobeUpdate
+{
+	show_console;
+	echo 'Загружаю данные глобуса...';
+	my $dta = webget($GlobeUpdateSite,1251)?:{echo 'Загрузка не удалась :(';pause;return};
+	echo 'Импортирую';
+	iterate_all graphics {$layer='Globe'?delete;};
+	csv_import 'graphics','',1,$dta;
+}
+add_menu 'Data/DCMapGlobeUpdate:2', 'Update Globe',$GlobeUpdate;
+
+module GlobePanel : html_ui
+{
+	my @Graph;
+
+	sub GlobeUpdate
+	{
+		show_console;
+		echo 'Загружаю данные глобуса...';
+		my $dta = webget($GlobeUpdateSite,1251);
+		if($dta)
+		{
+			echo 'Импортирую';
+			iterate_all graphics {$layer='Globe'?delete;};
+			csv_import 'graphics','',1,$dta;
+		}
+		hide_console;
+		update_data();
+		show_map_layer('Globe',1);
+		update_map();
+	}
+
+	sub gedit
+	{
+		table graphics;
+		layer = 'globe';
+		name = $_;
+		if(select) edit_table 'graphics',$id;
+	}
+
+	sub Items
+	{
+		my $s;
+		table graphics;
+		foreach my $g (Graph)
+		{
+			if select $g
+			{
+				sprint $s, qq{<tr><td class="OrgHeader" >$name <a href="dcm:gedit('$name')">E</a></td></tr>};
+
+				$notes =~ /<\s*[Ii][Nn][Ff][Oo]\s*>(.+)<\/\s*[Ii][Nn][Ff][Oo]\s*>/;
+				if($1)
+				{ 
+					sprint $s, qq{<tr><td class="OrgBody" >$1</td></tr>};
+				}
+				else if $notes
+				{
+					my $data = xmlquote($notes) =~ replace/\n/<br>&nbsp;/;	
+					sprint $s, qq{<tr><td class="OrgBody">&nbsp;$data</td></tr>};	
+				}
+			}
+		}
+		$s;
+	}
+
+	sub Update
+	{
+		my X,Y = current_cell();
+
+		set Graph = get_graphics_at(X,Y);
+
+		reload;
+	}
+
+	handle_msg DCMM_PLANET_CHANGED, $Update;
+	handle_msg DCMM_DATA_CHANGED, $Update;
+
+	doc.width = 170;
+	loadhtml(loadfile_utf8(moddir::'panel.html'),moddir);
+};
+register_module 'PFormPanelItem','GlobePanel', $GlobePanel;
+
+

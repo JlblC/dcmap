@@ -1,0 +1,5 @@
+﻿my $dta='x;y;o;e;m;t;s\n';
+iterate_all planets{if($s>0)print $dta, "$x;$y;$o;$e;$m;$t;$s\n"; };
+csv_import 'geo','',1,$dta;
+
+

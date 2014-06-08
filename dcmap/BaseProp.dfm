@@ -1,0 +1,2 @@
+inherited BaseEditModuleFrame: TBaseEditModuleFrame
+end

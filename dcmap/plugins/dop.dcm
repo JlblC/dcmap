@@ -1,0 +1,92 @@
+sub PlanetDelete{
+	clear_console;
+	show_console;
+	echo "Чистим карту...";
+	set $i=0;
+	iterate_all planets {if ($s=0 and $owner=none) {set $i=$i+1;delete}}
+	echo "";
+	echo "Удалено планет: $i";
+	pause();
+	hide_console}
+sub PlayerDelete{
+	show_console;
+	sub GetPlayerNameByID {
+		my $id = $_;
+		my $r = webget "http://www.the-game.ru/ru/frames/playerinfo/on/$id"
+		$r =~ |>([^<]+)</h1>|;
+		xmlunqoute($1)}
+	set $i=0;
+	set $j=0;
+	set $k=0;
+	iterate_all players {
+		if(test_cancel)return;
+		set $k=$k+1;
+		if($user_id>0)
+		{my $n=GetPlayerNameByID($user_id);
+			if($n) {set $i=$i+1;echo "$k	Аккаунт $n существует"}
+			else
+			{set $j=$j+1;echo "$k	Аккаунт $name с ID:$user_id удаляется";
+			delete}}
+		else
+		{set $j=$j+1;echo "$k	Аккаунт $name удаляется";
+		delete}}
+	echo "";
+	echo "Удалено аккаунтов: $j";
+	echo "Осталось аккаунтов: $i"
+	pause();
+	hide_console}
+sub PlayerDeleteNotPlanet{
+	clear_console;
+	show_console;
+	echo "Удаляем аккаунты без планет...";
+	set $i=0;
+	my %p;
+	iterate_all planets {set p[$owner]=1}
+	iterate_all players {if($p[$name]) continue;set $i=$i+1;echo "$i	$name удален!";delete}
+	echo "";
+	echo "Удалено аккаунтов: $i";
+	pause();
+	hide_console}
+sub GetPolitic{
+	sub getxml{
+		my $login,$pass,$sec= $_;
+		my %post = 'action' => 'login', 'login' => $login, 'pwd' => $pass;
+		my $r = webpost "http://www.the-game.ru/frames/empire_info/on/$sec/asxml/", urlencode($post);
+		return $r}
+	show_console;
+	console_caption "Импорт политики";
+	my $good;
+	iterate_all players{
+		($web_access and $login and $password)?:continue;
+		clear_console;
+		echo "Загружаем политику '$name'"
+		my $g=getxml($login,$password,'diplomacy');
+		if(!$g){
+			echo 'Не удалось';
+			echo 'Проверьте наличие подключения к Интернет';
+			pause();
+			return nil}
+		my @users = split/></g;
+		foreach my $user (users){
+			my $itm=$user=~/type="([^"]+)" player="(\d+)" name="([^"]+)"/;
+			if ($itm){
+			table players;
+			name=$3;
+			retrieve;
+			user_id=$2;
+			if ($1==0){dip='Враг';echo "$1-$3-$2-Враг"}
+			if ($1==1){dip='Нейтральный';echo "$1-$3-$2-Нейтральный"}
+			if ($1==2 or $1==3 or $1==4){dip='Союзник';echo "$1-$3-$2-Союзник"}
+			post}}
+		echo "Готово.";
+		set $good=1}
+	if(!$good) {echo  'Нет акаунтов, для которых можно импортировать данные.'}
+	pause();
+	hide_console}
+
+add_menu 'Dop:50', 'Дополнительно'
+add_menu 'Dop/PlanetDelete:1', 'Удалить "пустые" планеты',$PlanetDelete;
+add_menu 'Dop/PlayerDelete:1', 'Удалить аккаунты, которых нет в РиВе',$PlayerDelete;
+add_menu 'Dop/PlayerDeleteNotPlanet:1', 'Удалить аккаунты без планет',$PlayerDeleteNotPlanet;
+add_menu 'Dop/:2', '-'
+add_menu 'Dop/GetPolitic:2', 'Считать политику из РиВы',$GetPolitic;

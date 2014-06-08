@@ -1,0 +1,11 @@
+﻿table players;
+name='Dark Knight';
+select or die;
+iterate_childs planetsgroups ($open_planets.id)
+{
+	echo "[$planet.x:$planet.y] $planet.name {$planet.owner}";
+};
+
+
+
+

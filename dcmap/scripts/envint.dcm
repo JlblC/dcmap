@@ -1,0 +1,56 @@
+﻿iterate_all players
+{
+	$dip == 'Мульт' ?: continue;
+
+    echo '--------------------------------------------';
+    echo "player: $name";
+
+	iterate_childs planetsgroups ($own_planets.id)
+	{
+		my $pid = $planet.id;
+		table planets;
+		select $pid;
+
+		my %bld,%gar;
+
+		echo "  planet [$x:$y] $name";
+
+        echo "    buildings:";
+		iterate_childs buildings ($buildings.id){ inc $bld[$project.name];};
+		foreach my $b (bld){echo '      '::$b[1]::($b[0]>1?"[${$b[0]}]":'');}
+        echo "    garrison:";
+		iterate_childs buildings ($garrison.id){ inc $gar[$project.name];};
+		foreach my $b (gar){ echo '      '::$b[1]::($b[0]>1?"[${$b[0]}]":'');}
+
+		if($icon = '')
+		{
+		 if($bld['Завод']>0) icon = 'Фабрика';
+		 if($bld['Конструкторское бюро']>0) icon = 'КБ';
+		 if($bld['Фабрика комплектующих']>0) icon = 'Фабрика';
+		 if($bld['Таможня']>0) icon = 'Таможня';
+		 if($bld['Центр исследований']>0) icon = 'Исслед. центр.';
+		}
+		if($icon2 = '')
+		{
+		  if($gar['Наместник']>0) icon2 = 'Наместник';
+		}
+		post;
+
+        table planetsgroups;
+	};
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

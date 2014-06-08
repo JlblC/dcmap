@@ -1,0 +1,38 @@
+﻿sub Test
+{
+	show_console;
+	echo 'regression test';
+	my $Res = 1+2*5;
+	($Res == 11) or die;
+	my @Arr = 1,2,3,4,5;
+	($Arr[3] == 4) or die;	
+
+	my X,Y = nil;
+	set @Res = X,Y;
+	($Res[0] is nil) or die;
+	set Res[0] = 5;
+	($Res[1] is nil) or die;	
+	($Res[0] == 5) or die;	
+	
+	echo 'check assign operations';
+	my $a,$b,$c = 1,2,3;
+
+	set $a += 2;  ($a == 3) or die;
+	set $a *= 5;  ($a == 15) or die;
+	set $a -= 7;  ($a == 8) or die;
+	set $a /= 4;  ($a == 2) or die;
+	set $a ++;  ($a == 3) or die;
+	set $a ++  ($a == 4) or die;
+	set $a --;  ($a == 3) or die;
+
+	echo 'ok';
+	pause;
+}
+
+add_menu 'regtest:99','regtest',$Test ;
+
+
+
+
+
+

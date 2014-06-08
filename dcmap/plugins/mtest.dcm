@@ -1,0 +1,28 @@
+
+module PlanetInfo : html_ui
+{
+	my X,Y,Coord,PName,Owner,O,E,M,T,S;
+	sub Update
+	{
+		set X,Y = current_cell();
+
+		set Coord = "$X:$Y";
+
+		table planets;
+		set x,y = $X,$Y;
+		set PName,Owner,O,E,M,T,S = select?($name,$owner,$o,$e,$m,$t,$s):'';
+
+		reload;
+
+	}
+
+	sub EditPlayer{ table players; name=$Owner; select?record_edit_ui; }
+	sub EditPlanet{ table planets; set x,y = $X,$Y; select?record_edit_ui; }
+
+	handle_msg DCMM_PLANET_CHANGED, $Update;
+	handle_msg DCMM_DATA_CHANGED, $Update;
+	
+	loadhtml(loadfile_utf8(moddir::'pinfo.html'));
+};
+register_module 'PFrameBar','HTMLPlanetInfo', $PlanetInfo;
+

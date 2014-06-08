@@ -1,0 +1,11 @@
+﻿
+object grid_menu_handler{my $table = $_;sub handle{services.GridDataEdit.EditTable($table)}}
+
+add_menu 'Tools/DataGrids','DataGrids';
+foreach my $table (core.Database.ListTables())
+{
+  echo $table[1];
+  #echo $_[0];
+  add_menu 'Tools/DataGrids/Menu'::$table[1],$table[1], grid_menu_handler($table[1]).handle;
+}
+

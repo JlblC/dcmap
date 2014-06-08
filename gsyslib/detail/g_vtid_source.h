@@ -1,0 +1,248 @@
+#pragma once
+#ifndef G_VTID_SOURCE_H
+#define G_VTID_SOURCE_H
+
+#include "g_gsys.h"
+#include "g_binstream.h"
+#include "g_gvector.h"
+#include "g_gstring.h"
+#include "typeinfo.h"
+
+namespace gsys
+{
+	class vtid_t;
+	typedef ::gsys::vtid_t const* vtid_typeinfo;
+	class vtid_ref;
+	class vtid_var;
+
+	struct vtid_ref_info;
+	struct vtid_ref_info_receiver
+	{
+		virtual void operator()(vtid_ref_info const& inf)=0;
+	};
+
+	enum vtid_result
+	{
+		vtid_ok=0,
+		vtid_proceeded=1,
+
+		vtid_err=-1,
+		vtid_err_invalid_name=-2,
+		vtid_err_invalid_param=-3,
+		vtid_err_invalid_type=-4,
+		vtid_err_invalid_value=-5,
+		vtid_err_internal_error=-6,
+		vtid_err_acess_denied=-7,
+		vtid_err_not_found=-8,
+		vtid_err_already_exists=-9,
+		vtid_err_type_mismatch=-10,
+		vtid_err_no_object=-11,
+		vtid_err_invalid_function_parameters=-12,
+
+		vtid_err_unknown=-127
+	};
+
+	enum vtid_access_mode
+	{
+		vtid_access_init=0x01,       // to perform initial init of object (while configuring)
+		vtid_access_modify=0x08,      // to get object ref & operate with object's properties
+		vtid_access_read=0x02,       // to read object value  
+		vtid_access_write=0x04,      // to write object value
+		vtid_access_serialize=0x10   // to auto serialize object sub decls
+	};
+
+	struct vtid_acess_data
+	{
+		void* ptr;         // base class pointer
+		vtid_access_mode acc_mode;      //  access mode 
+
+		vtid_t const* type;  // access type mod (could differ from default)
+
+		char const* name;      //  access name
+		char const* param;     //  access param
+		char const* value;     //  value
+		char const* type_name; //  value
+
+		char const* line;      //  access name
+
+		gsys_pt_diff uiOffset; // offset base ptr
+
+		char const* file_name; // current pasing file
+		int file_line; // current line in file
+
+		vtid_acess_data()
+		{
+			// fill structure with zeros
+			memset(this,0,sizeof(*this));
+		}
+	};
+
+	namespace detail
+	{
+		typedef void* (GSYS_CALLBACK *vtid_class_factory_proc)(void* ptr);
+
+		typedef  std::type_info const& (GSYS_CALLBACK *vtid_type_proc)(void); 
+
+		struct vtid_user_info
+		{
+			gstring description;
+			gstring values;
+		};
+
+		// common operations 
+		struct vtid_operations
+		{
+			typedef bool (GSYS_CALLBACK *to_str)(void* ptr,gstring &str); 
+			typedef bool (GSYS_CALLBACK *from_str)(void* ptr,gstring const &str); 
+			typedef bool (GSYS_CALLBACK *from_filename)(void* ptr,wchar_t const* base,wchar_t const* str); 
+
+			typedef void (GSYS_CALLBACK *copy_obj)(void* ptr,void* src); 
+			typedef bool (GSYS_CALLBACK *apply_obj)(void* ptr,void* src,vtid_t const* type); 
+
+			typedef int (GSYS_CALLBACK *compare_obj)(void* ptr,void* src); 
+
+			typedef void (GSYS_CALLBACK *serial_save)(void* ptr,gsys::binostream &os); 
+			typedef void (GSYS_CALLBACK *serial_init)(void* ptr,gsys::binistream &is); 
+
+
+			to_str h_to_str;
+			from_str h_from_str;
+			from_filename h_from_filename;
+
+			copy_obj h_copy_obj;
+			apply_obj h_apply_obj;
+
+			compare_obj h_compare_obj;
+
+			serial_save  h_serial_save;
+			serial_init  h_serial_init;
+
+			vtid_operations():
+				h_to_str(0),
+				h_from_str(0),
+				h_copy_obj(0),
+				h_apply_obj(0),
+				h_compare_obj(0),
+				h_serial_save(0),
+				h_serial_init(0),
+				h_from_filename(0)
+				{}
+		};
+
+		// function caller template
+		typedef vtid_result (GSYS_CALLBACK *vtid_class_proc)
+			(void* classptr,int numparams,vtid_ref const* params,vtid_ref* result); 
+		
+		// call to access specific variable
+		// vtid_acess_data const  *dtain  - in access information
+		// vtid_ref* ref - out valid reference
+		typedef vtid_result (GSYS_CALLBACK *vtid_access_var_proc)
+							(vtid_acess_data const  *dta,vtid_ref* ref); 
+
+		typedef void (GSYS_CALLBACK *vtid_export_proc)(void* classptr,vtid_ref_info_receiver& pRes); 
+
+		typedef bool (GSYS_CALLBACK *vtid_serialize_proc)(void* ptr,vtid_ref_info& rInf); 
+
+		struct vtid_decl
+		{
+			// type of pointed variable or 
+			//  return value of function or 
+			//	param for access proc.
+			vtid_typeinfo vtidType;
+
+			gstring strDescription;
+			// Name id of type (used only if multiple instances of declaration used) 
+			gstring strName;
+
+			// offset of data member from begin of structure
+			gsys_pt_diff uiOffset;
+
+			// used to access specific variable
+            vtid_access_var_proc h_access_var;
+
+			vtid_serialize_proc h_serialize_proc;
+
+			// used to access class function wraper
+			vtid_class_proc h_class_proc;
+
+			// number and types of formal params to function
+			gvector<vtid_typeinfo> vecProcParams;
+		
+			// acess flags
+			unsigned int flg;
+
+			// access mask - only masked access operation allowed
+			word  wAccessMask;
+
+			vtid_decl():
+					vtidType(0),
+					uiOffset(invalid_pt_diff),
+					h_access_var(0),
+					h_serialize_proc(0),
+					h_class_proc(0),
+					flg(0),
+					wAccessMask(0)
+				{}
+		};
+
+		struct vtid_decl_source
+		{
+			// Name of data member
+			gstring strName;
+			// autogenerated name of contained type if any
+			char const * czTypeName;
+
+			// autogenerated name proc params if any
+			gvector<gsys::gstring> vecProcParamsNames;
+
+			vtid_decl decl;
+		};
+
+		struct vtid_source
+		{
+			gsys::vtid_typeinfo* pTypeHolder;
+
+			// autogenerated type name
+			char const * czTypeName;
+			// typename used for visualization of type
+			char const * czFineTypeName;
+			
+			// typename of parent class
+			char const * czParentTypeName;
+			gsys_pt_diff iParentOffset;
+			
+			// aliases of type
+			gvector<gstring> vtNameAliases;
+			// data members declarations
+			gvector<vtid_decl_source> vtDataMembers;
+
+			// data members declarations
+			typedef gvector<std::pair<const char*,gsys_pt_diff> > VecStaticCast;
+			VecStaticCast vtStaticCast;
+			// interface for creation of object
+			vtid_class_factory_proc ClassFactory;
+			vtid_type_proc TypeProc;
+
+			vtid_access_var_proc AccessProc;
+			vtid_export_proc ExportProc;
+
+			// base manipulations wrapper
+			vtid_operations BaseOp;
+			vtid_user_info  UserInf;
+			
+			vtid_source():
+				pTypeHolder(0),
+				czTypeName(0), 
+				czFineTypeName(0),
+				czParentTypeName(0),
+				iParentOffset(0),
+				ClassFactory(0),
+				TypeProc(0),
+			    AccessProc(0),
+				ExportProc(0)
+				{}
+		};
+	}
+}
+
+#endif

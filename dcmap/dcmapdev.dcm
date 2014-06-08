@@ -1,0 +1,34 @@
+﻿
+global _DEBUG=1;
+
+global sub getdcxml 
+{
+	my $login,$pass,$sec= $_;
+	my %post = 'action' => 'login', 'login' => $login, 'pwd' => $pass;
+	my $r = webpost "$gameurl/frames/empire_info/on/$sec/asxml/", urlencode($post);
+	savefile "$dcmapdir/temp/$login-$sec.xml",$r;
+	return $r;
+}
+
+global sub OpenEditor
+{
+
+}
+
+global sub RegisterEditor
+{
+ 	   services.Utils.RegisterExt('dcm','Macro','OpenEditor');
+}
+
+
+# Data grids
+module dcmapdev : core_daemon
+{
+	add_menu 'Tools/DataEditComponents:2', 'Components', sub{services.GridDataEdit.EditTable('components')};
+
+	add_menu 'Options/RegisterEditor:3', 'Register Editor', $RegisterEditor;
+	add_menu 'Tools/DataGrids','DataGrids';
+
+	object grid_menu_handler{my $table = $_;sub handle{services.GridDataEdit.EditTable($table)}}
+	foreach (core.Database.ListTables())  add_menu 'Tools/DataGrids/Menu'::$_[1],$_[1], grid_menu_handler($_[1]).handle;
+}

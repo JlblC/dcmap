@@ -1,0 +1,986 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{2ba96e7d-44b1-4868-be20-941b13fde4d3}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm</Extensions>
+    </Filter>
+    <Filter Include="Source Files\unzip">
+      <UniqueIdentifier>{0016a0f3-d284-4270-918c-d797566d94ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\blowfish">
+      <UniqueIdentifier>{a46f9f98-ec18-4bf4-91a8-0ba2a0a05f7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\boost">
+      <UniqueIdentifier>{a502f9fe-74af-4b8c-9e93-d663457dad45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\boost\system">
+      <UniqueIdentifier>{efb8e7ce-5cb6-4f4f-81da-849f290d8254}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\boost\regexp">
+      <UniqueIdentifier>{e9cd020d-0314-4b2c-9096-769dc3ef1343}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\boost\program_options">
+      <UniqueIdentifier>{8f9e187c-798b-4042-9006-2d00457f1c0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\boost\python">
+      <UniqueIdentifier>{707faa03-6bc7-446c-981f-59a51d913daf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\boost\python\object">
+      <UniqueIdentifier>{bdaf885c-8591-4a5f-8570-f876603cf319}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\boost\python\converter">
+      <UniqueIdentifier>{eb6cf453-f038-41bb-ab74-25effe2ee923}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\boost\filesystem">
+      <UniqueIdentifier>{d5258205-07d1-4733-98df-e6eb55caf073}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\bzip">
+      <UniqueIdentifier>{5e887f27-e8c2-4731-a6c1-7545195e9630}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{5e0e0035-e193-48fe-bffd-232107a41030}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc</Extensions>
+    </Filter>
+    <Filter Include="Header Files\detail">
+      <UniqueIdentifier>{abbba618-7fd9-479a-89a7-42f6150f3c4c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="doc">
+      <UniqueIdentifier>{455c0e63-e0d3-43ec-bd02-e1e86c3c71d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="inc">
+      <UniqueIdentifier>{26573b44-b9cb-4b13-b4bb-69b1f69af2a2}</UniqueIdentifier>
+      <Extensions>*.inc</Extensions>
+    </Filter>
+    <Filter Include="Source Files\yaml">
+      <UniqueIdentifier>{6a01d4b7-3c8a-4d53-ad68-b973754af471}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\eastl">
+      <UniqueIdentifier>{592165f2-a0ff-4cf4-ab51-38ab878ef668}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="eastl">
+      <UniqueIdentifier>{f139a21e-74a6-48c6-b21f-b9192cf319d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="eastl\internal">
+      <UniqueIdentifier>{bbddaf71-277d-4f50-ab59-6df72aaee0ea}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="borlandc_config.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="common.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="configure.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="g_platform.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gnuc_config.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MyPSD.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="blowfish\blowfish.h">
+      <Filter>Source Files\blowfish</Filter>
+    </ClInclude>
+    <ClInclude Include="bzip\bzlib.h">
+      <Filter>Source Files\bzip</Filter>
+    </ClInclude>
+    <ClInclude Include="bzip\bzlib_private.h">
+      <Filter>Source Files\bzip</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_alg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_allocators.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_array2d.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_assert.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_base_matrix.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_basic.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_basic_types.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_binstream.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_block_file.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_blockfile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_blowfish.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_box3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_bzip_file.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_bzlib.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_camera_frustum.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_color.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_crc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_data_buffer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_descent_iterator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_dynarray.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_edge2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_ext_heap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_fcolor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_fdir.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_file.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_file_binstream.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_file_istream.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_file_pipe.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_file_util.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_fixed_raw_plane_map.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_fixed_vector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_geometry.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_gid.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_gresult.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_gstring.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_gsys.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_gsys_assert.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_gsys_config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_gvector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_gzip_file.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_hash_map.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_iconv.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_imgload.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_indexed_list.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_intersectiontest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_intr_list.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_intrlist.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_legacy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_line2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_line3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_math.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_matrix3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_matrix3x2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_matrix3x4.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_matrix4.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_matrix4x3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_matrix_operations.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_mem_file.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_memory_manager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_object.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_ogg_vorbis.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_openal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_opengl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_pack_file.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_parsestream.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_physx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_plane.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_point.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_point2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_polygon2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_pooled_string.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_python.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_quaternion.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_range.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_raw_ptr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_records_file.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_rect.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_ref_array.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_ref_ptr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_ref_string.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_smartptr_refcount.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_sphere.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_static_array2d.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_staticarray2d.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_staticstring.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_std_fdir.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_std_file.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_string_collector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_text.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_text_alg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_text_config_parser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_text_intended_parser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_theora.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_tokamak.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_transform2d.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_transform3_util.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_transform_quat.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_triangle3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_types.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_utility.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_var_typeid.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_vector2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_vector3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_vector4.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_vectoralgebra.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_virt_func.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_vtid.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_vtid_auto_ptr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_vtid_const.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_vtid_lib.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_vtid_parse_helper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_vtid_ref_map.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_vtid_script_primer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_vtid_util.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_vtid_var.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_zip_archive.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_zip_fdir.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_zlib.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\gcontainer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\gmath.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\gmath_base.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\gmath_matrix4.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\gmem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\gsys.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\intrlist.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mcvs_config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\detail\g_iterators.h">
+      <Filter>Header Files\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\detail\g_vtid_macro.h">
+      <Filter>Header Files\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\detail\g_vtid_source.h">
+      <Filter>Header Files\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\g_polygon2.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\g_text_intended_parser.hpp">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\yaml.h">
+      <Filter>Source Files\yaml</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\yaml\yaml_private.h">
+      <Filter>Source Files\yaml</Filter>
+    </ClInclude>
+    <ClInclude Include="libs\yaml\config.h">
+      <Filter>Source Files\yaml</Filter>
+    </ClInclude>
+    <ClInclude Include="boost\filesystem\windows_file_codecvt.hpp">
+      <Filter>Source Files\boost\filesystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\g_FreeImage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\EASTL\algorithm.h">
+      <Filter>eastl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\EASTL\allocator.h">
+      <Filter>eastl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\EASTL\bitset.h">
+      <Filter>eastl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\EASTL\core_allocator_adapter.h">
+      <Filter>eastl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\EASTL\fixed_allocator.h">
+      <Filter>eastl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\EASTL\fixed_hash_map.h">
+      <Filter>eastl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\EASTL\fixed_hash_set.h">
+      <Filter>eastl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\EASTL\fixed_list.h">
+      <Filter>eastl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\EASTL\fixed_map.h">
+      <Filter>eastl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\EASTL\fixed_set.h">
+      <Filter>eastl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\EASTL\fixed_string.h">
+      <Filter>eastl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\EASTL\fixed_substring.h">
+      <Filter>eastl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\EASTL\fixed_vector.h">
+      <Filter>eastl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\EASTL\functional.h">
+      <Filter>eastl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\EASTL\hash_map.h">
+      <Filter>eastl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\EASTL\hash_set.h">
+      <Filter>eastl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\EASTL\heap.h">
+      <Filter>eastl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\EASTL\iterator.h">
+      <Filter>eastl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\EASTL\list.h">
+      <Filter>eastl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\EASTL\map.h">
+      <Filter>eastl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\EASTL\memory.h">
+      <Filter>eastl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\EASTL\set.h">
+      <Filter>eastl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\EASTL\sort.h">
+      <Filter>eastl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\EASTL\string.h">
+      <Filter>eastl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\EASTL\type_traits.h">
+      <Filter>eastl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\EASTL\utility.h">
+      <Filter>eastl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\EASTL\vector.h">
+      <Filter>eastl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\EASTL\internal\config.h">
+      <Filter>eastl\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\EASTL\internal\eastl_rw.h">
+      <Filter>eastl\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\EASTL\internal\fixed_pool.h">
+      <Filter>eastl\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\EASTL\internal\generic_iterator.h">
+      <Filter>eastl\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\EASTL\internal\hashtable.h">
+      <Filter>eastl\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\EASTL\internal\red_black_tree.h">
+      <Filter>eastl\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\EASTL\internal\type_compound.h">
+      <Filter>eastl\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\EASTL\internal\type_fundamental.h">
+      <Filter>eastl\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\EASTL\internal\type_pod.h">
+      <Filter>eastl\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\EASTL\internal\type_properties.h">
+      <Filter>eastl\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\EASTL\internal\type_transformations.h">
+      <Filter>eastl\internal</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="g_assert.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="g_blocfile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="g_blowfish.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="g_camera_frustum.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="g_file_util.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="g_math.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="g_matrix_operations.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="g_memory_manager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="g_ogg_vorbis.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="g_platform.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="g_python.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="g_string_collector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="g_vtid_const.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="g_vtid_lib.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="g_vtid_lib_export.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="g_vtid_lib_export_guid.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="g_vtid_lib_expstd.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\g_vtid_parse_helper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="g_vtid_var.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gsys.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="imgload.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="imgload_jpeg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="imgload_mei.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="imgload_psd.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="imgload_tga.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MyPSD.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="vtid_export_geom.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="unzip\io_gfile.cpp">
+      <Filter>Source Files\unzip</Filter>
+    </ClCompile>
+    <ClCompile Include="unzip\ioapi.c">
+      <Filter>Source Files\unzip</Filter>
+    </ClCompile>
+    <ClCompile Include="unzip\unzip.c">
+      <Filter>Source Files\unzip</Filter>
+    </ClCompile>
+    <ClCompile Include="unzip\zip.c">
+      <Filter>Source Files\unzip</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\system\error_code.cpp">
+      <Filter>Source Files\boost\system</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\regexp\c_regex_traits.cpp">
+      <Filter>Source Files\boost\regexp</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\regexp\cpp_regex_traits.cpp">
+      <Filter>Source Files\boost\regexp</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\regexp\cregex.cpp">
+      <Filter>Source Files\boost\regexp</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\regexp\fileiter.cpp">
+      <Filter>Source Files\boost\regexp</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\regexp\icu.cpp">
+      <Filter>Source Files\boost\regexp</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\regexp\instances.cpp">
+      <Filter>Source Files\boost\regexp</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\regexp\posix_api.cpp">
+      <Filter>Source Files\boost\regexp</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\regexp\regex.cpp">
+      <Filter>Source Files\boost\regexp</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\regexp\regex_debug.cpp">
+      <Filter>Source Files\boost\regexp</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\regexp\regex_raw_buffer.cpp">
+      <Filter>Source Files\boost\regexp</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\regexp\regex_traits_defaults.cpp">
+      <Filter>Source Files\boost\regexp</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\regexp\static_mutex.cpp">
+      <Filter>Source Files\boost\regexp</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\regexp\usinstances.cpp">
+      <Filter>Source Files\boost\regexp</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\regexp\w32_regex_traits.cpp">
+      <Filter>Source Files\boost\regexp</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\regexp\wc_regex_traits.cpp">
+      <Filter>Source Files\boost\regexp</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\regexp\wide_posix_api.cpp">
+      <Filter>Source Files\boost\regexp</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\regexp\winstances.cpp">
+      <Filter>Source Files\boost\regexp</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\program_options\cmdline.cpp">
+      <Filter>Source Files\boost\program_options</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\program_options\config_file.cpp">
+      <Filter>Source Files\boost\program_options</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\program_options\convert.cpp">
+      <Filter>Source Files\boost\program_options</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\program_options\options_description.cpp">
+      <Filter>Source Files\boost\program_options</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\program_options\parsers.cpp">
+      <Filter>Source Files\boost\program_options</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\program_options\positional_options.cpp">
+      <Filter>Source Files\boost\program_options</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\program_options\split.cpp">
+      <Filter>Source Files\boost\program_options</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\program_options\utf8_codecvt_facet.cpp">
+      <Filter>Source Files\boost\program_options</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\program_options\value_semantic.cpp">
+      <Filter>Source Files\boost\program_options</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\program_options\variables_map.cpp">
+      <Filter>Source Files\boost\program_options</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\program_options\winmain.cpp">
+      <Filter>Source Files\boost\program_options</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\python\dict.cpp">
+      <Filter>Source Files\boost\python</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\python\errors.cpp">
+      <Filter>Source Files\boost\python</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\python\exec.cpp">
+      <Filter>Source Files\boost\python</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\python\import.cpp">
+      <Filter>Source Files\boost\python</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\python\list.cpp">
+      <Filter>Source Files\boost\python</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\python\long.cpp">
+      <Filter>Source Files\boost\python</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\python\module.cpp">
+      <Filter>Source Files\boost\python</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\python\numeric.cpp">
+      <Filter>Source Files\boost\python</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\python\object_operators.cpp">
+      <Filter>Source Files\boost\python</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\python\object_protocol.cpp">
+      <Filter>Source Files\boost\python</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\python\slice.cpp">
+      <Filter>Source Files\boost\python</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\python\str.cpp">
+      <Filter>Source Files\boost\python</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\python\tuple.cpp">
+      <Filter>Source Files\boost\python</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\python\wrapper.cpp">
+      <Filter>Source Files\boost\python</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\python\object\class.cpp">
+      <Filter>Source Files\boost\python\object</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\python\object\enum.cpp">
+      <Filter>Source Files\boost\python\object</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\python\object\function.cpp">
+      <Filter>Source Files\boost\python\object</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\python\object\inheritance.cpp">
+      <Filter>Source Files\boost\python\object</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\python\object\iterator.cpp">
+      <Filter>Source Files\boost\python\object</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\python\object\life_support.cpp">
+      <Filter>Source Files\boost\python\object</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\python\object\pickle_support.cpp">
+      <Filter>Source Files\boost\python\object</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\python\object\stl_iterator.cpp">
+      <Filter>Source Files\boost\python\object</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\python\converter\arg_to_python_base.cpp">
+      <Filter>Source Files\boost\python\converter</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\python\converter\builtin_converters.cpp">
+      <Filter>Source Files\boost\python\converter</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\python\converter\from_python.cpp">
+      <Filter>Source Files\boost\python\converter</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\python\converter\registry.cpp">
+      <Filter>Source Files\boost\python\converter</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\python\converter\type_id.cpp">
+      <Filter>Source Files\boost\python\converter</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\filesystem\operations.cpp">
+      <Filter>Source Files\boost\filesystem</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\filesystem\path.cpp">
+      <Filter>Source Files\boost\filesystem</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\filesystem\portability.cpp">
+      <Filter>Source Files\boost\filesystem</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\filesystem\utf8_codecvt_facet.cpp">
+      <Filter>Source Files\boost\filesystem</Filter>
+    </ClCompile>
+    <ClCompile Include="bzip\blocksort.c">
+      <Filter>Source Files\bzip</Filter>
+    </ClCompile>
+    <ClCompile Include="bzip\bzlib.c">
+      <Filter>Source Files\bzip</Filter>
+    </ClCompile>
+    <ClCompile Include="bzip\compress.c">
+      <Filter>Source Files\bzip</Filter>
+    </ClCompile>
+    <ClCompile Include="bzip\crctable.c">
+      <Filter>Source Files\bzip</Filter>
+    </ClCompile>
+    <ClCompile Include="bzip\decompress.c">
+      <Filter>Source Files\bzip</Filter>
+    </ClCompile>
+    <ClCompile Include="bzip\huffman.c">
+      <Filter>Source Files\bzip</Filter>
+    </ClCompile>
+    <ClCompile Include="bzip\randtable.c">
+      <Filter>Source Files\bzip</Filter>
+    </ClCompile>
+    <ClCompile Include="inc\inc.cpp">
+      <Filter>inc</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\yaml\api.c">
+      <Filter>Source Files\yaml</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\yaml\dumper.c">
+      <Filter>Source Files\yaml</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\yaml\emitter.c">
+      <Filter>Source Files\yaml</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\yaml\loader.c">
+      <Filter>Source Files\yaml</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\yaml\parser.c">
+      <Filter>Source Files\yaml</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\yaml\reader.c">
+      <Filter>Source Files\yaml</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\yaml\scanner.c">
+      <Filter>Source Files\yaml</Filter>
+    </ClCompile>
+    <ClCompile Include="libs\yaml\writer.c">
+      <Filter>Source Files\yaml</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\filesystem\codecvt_error_category.cpp">
+      <Filter>Source Files\boost\filesystem</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\filesystem\path_traits.cpp">
+      <Filter>Source Files\boost\filesystem</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\filesystem\unique_path.cpp">
+      <Filter>Source Files\boost\filesystem</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\filesystem\windows_file_codecvt.cpp">
+      <Filter>Source Files\boost\filesystem</Filter>
+    </ClCompile>
+    <ClCompile Include="boost\python\object\function_doc_signature.cpp">
+      <Filter>Source Files\boost\python\object</Filter>
+    </ClCompile>
+    <ClCompile Include="eastl\allocator.cpp">
+      <Filter>Source Files\eastl</Filter>
+    </ClCompile>
+    <ClCompile Include="eastl\assert.cpp">
+      <Filter>Source Files\eastl</Filter>
+    </ClCompile>
+    <ClCompile Include="eastl\fixed_pool.cpp">
+      <Filter>Source Files\eastl</Filter>
+    </ClCompile>
+    <ClCompile Include="eastl\hashtable.cpp">
+      <Filter>Source Files\eastl</Filter>
+    </ClCompile>
+    <ClCompile Include="eastl\red_black_tree.cpp">
+      <Filter>Source Files\eastl</Filter>
+    </ClCompile>
+    <ClCompile Include="eastl\string.cpp">
+      <Filter>Source Files\eastl</Filter>
+    </ClCompile>
+    <ClCompile Include="g_matrix4.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="blowfish\blowfish.h2">
+      <Filter>Source Files\blowfish</Filter>
+    </None>
+    <None Include="Соглашения.txt">
+      <Filter>doc</Filter>
+    </None>
+  </ItemGroup>
+</Project>
